@@ -230,6 +230,12 @@ GEM
     sassc (2.0.0)
       ffi (~> 1.9.6)
       rake
+    sassc-rails (2.1.0)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -300,7 +306,7 @@ DEPENDENCIES
   rails_admin (~> 1.4, >= 1.4.2)
   rails_admin-i18n (~> 1.11, >= 1.11.3)
   ransack (~> 2.1, >= 2.1.1)
-  sass-rails (~> 5.0)
+  sassc-rails (~> 2.1)
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
