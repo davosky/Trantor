@@ -1,0 +1,2 @@
+module MissionPlacesHelper
+end

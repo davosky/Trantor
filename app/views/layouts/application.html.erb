@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Trantor</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <% if current_user %>
+  <div class='container'>
+    <div class="row">
+      <div class="col col-lg-12">
+        <%= render 'shared/navbar' %>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col col-lg-3'>
+        <%= render 'shared/sidebar' %>
+      </div>
+      <div class='col col-lg-9'>
+        <%= yield %>
+        <br>
+        <footer id='text-centered'>
+          <br>
+          <br>
+          <p class="notice">
+            <h6>
+              <small>
+                <%= notice %>
+              </small>
+            </h6>
+          </p>
+          <p class="alert">
+            <h6>
+              <small>
+                <%= alert %>
+              </small>
+            </h6>
+          </p>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <div class='container'>
+    <div class='row'>
+      <div class='col col-lg-4 col-lg-offset-4'>
+        <br>
+        <br>
+        <br>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</body>
+
+</html>

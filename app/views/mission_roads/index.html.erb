@@ -1,0 +1,47 @@
+<div class='panel panel-default'>
+  <div class='panel-body'>
+    <h4>
+      <%= fa_icon('map-signs') %>&nbsp;&nbsp;PERCORSI MISSIONE
+      <span class='pull-right'>
+        <%= link_to fa_icon('pencil'), new_mission_road_path, class: 'btn btn-default btn-sm', id: 'text-success' %>
+      </span>
+    </h4>
+    <hr>
+    <table class='table table-striped table-hover'>
+      <thead>
+        <tr>
+          <th>PERCORSO MISSIONE:</th>
+          <th>KM:</th>
+          <th>COSTO AUTOSTRADA:</th>
+          <th colspan='2'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @mission_roads.each do |mission_road| %>
+        <tr>
+          <td>
+            <%= link_to mission_road.name, mission_road, id: 'text-info' %>
+          </td>
+          <td>
+            <%= mission_road.km %>
+          </td>
+          <td>
+            <%= number_to_currency(mission_road.highway_cost) %>
+          </td>
+          <td>
+            <small>
+              <%= mission_road.position %>
+            </small>
+          </td>
+          <td>
+            <%= link_to fa_icon('pencil'), edit_mission_road_path(mission_road), id: 'text-warning' %>
+          </td>
+          <td>
+            <%= link_to fa_icon('trash'), mission_road, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il Percorso Missione corrente?' }, id: 'text-danger' %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

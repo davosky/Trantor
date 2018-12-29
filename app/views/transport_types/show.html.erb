@@ -1,0 +1,31 @@
+<div class='panel panel-default'>
+  <div class='panel-body'>
+    <h4>
+      <%= fa_icon('truck') %>&nbsp;&nbsp;TIPOLOGIA MEZZO
+      <span class='pull-right'>
+        <%= link_to fa_icon('arrow-left'), transport_types_path, class: 'btn btn-default btn-sm' %>
+        &nbsp;
+        <%= link_to fa_icon('pencil'), edit_transport_type_path(@transport_type), class: 'btn btn-default btn-sm', id: 'text-warning' %>
+      </span>
+    </h4>
+    <hr>
+    <dl class='dl-horizontal'>
+      <dt>TIPOLOGIA MEZZO:</dt>
+      <dd><%= @transport_type.name %></dd>
+      <dt>
+        <h6>
+          <small>
+            Posizione
+          </small>
+        </h6>
+        </dt>
+      <dd>
+        <h6>
+          <small>
+            <%= @transport_type.position %>
+          </small>
+        </h6>
+      </dd>
+    </dl>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  km: 9.99
+  highway_cost: 9.99
+  position: 1
+  user: one
+
+two:
+  name: MyString
+  km: 9.99
+  highway_cost: 9.99
+  position: 1
+  user: two

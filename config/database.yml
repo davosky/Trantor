@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: trantor
+  password: Dfr368qE
+  host: localhost
+
+development:
+  <<: *default
+  database: trantor_development
+
+test:
+  <<: *default
+  database: trantor_test
+
+production:
+  <<: *default
+  database: trantor_production

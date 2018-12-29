@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'/>
+    <%= stylesheet_link_tag wicked_pdf_asset_base64('pdfbilldownload') %>
+  </head>
+  <body>
+    <% @reimbursments.each do |reimbursment| %>
+    <div id='page'>
+      <div id='header'>
+        <div id='logo'>
+          <h2>
+            <strong>
+              <%= inline_svg('header_reimbursments.svg', size: '36mm * 8mm', preserve_aspect_ratio: 'xMaxYMax meet') %>
+              &nbsp;&nbsp;&nbsp;<%= current_user.institute %>
+            </strong>
+          </h2>
+        </div>
+        <hr>
+        <h3>FOGLIO MISSIONE</h3>
+        <p>
+        Il Segretario Generale della <%= current_user.institute %> <%= current_user.secretary %> autorizza:
+        <br>
+        <%= current_user.name %> alla missione con il seguente mezzo di trasporto:
+        </p>
+        <p>
+        <%= reimbursment.transport_type.name %>
+        <br>
+        Produttore:&nbsp;&nbsp;&nbsp;
+        <% if reimbursment.veichle_id != nil %>
+          <%= reimbursment.veichle.producer %>
+        <% else %>
+        <% end %>
+        &nbsp;&nbsp;&nbsp;
+        Modello:&nbsp;&nbsp;&nbsp;
+        <% if reimbursment.veichle_id != nil %>
+          <%= reimbursment.veichle.name %>
+        <% else %>
+        <% end %>
+        &nbsp;&nbsp;&nbsp;
+        Targa:&nbsp;&nbsp;&nbsp;
+        <% if reimbursment.veichle_id != nil %>
+          <%= reimbursment.veichle.licenceplate %>
+        <% else %>
+        <% end %>
+        </p>
+        <p>
+          Luogo della Missione:&nbsp;&nbsp;<%= reimbursment.mission_place.name %>
+          &nbsp;&nbsp;
+          Motivo del viaggio:&nbsp;&nbsp;<%= reimbursment.mission_reason.name %>
+        </p>
+        <p>
+          Partenza il:&nbsp;&nbsp;<%= reimbursment.departure_date.strftime('%d/%m/%Y') %>
+          &nbsp;&nbsp;
+          Rientro il:&nbsp;&nbsp;<%= reimbursment.return_date.strftime('%d/%m/%Y') %>
+        </p>
+        <p>
+          <table>
+            <thead>
+              <tr>
+                <td>Firma del Segretario Generale:</td>
+                <td>Data:</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr></tr>
+              <tr></tr>
+              <tr>
+                <td>------------------------------------------</td>
+                <td><%= reimbursment.request_date.strftime('%d/%m/%Y') %></td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <hr>
+        <h3>RIMBORSO SPESE DI:</h3>
+        <h4><%= current_user.name %></h4>
+        <p>
+          Percorso:&nbsp;&nbsp;
+          <% if reimbursment.mission_road_id != nil %>
+            <%= reimbursment.mission_road.name %>
+          <% end %>
+          <br>
+          Lunghezza Percorso:&nbsp;&nbsp;
+          <% if reimbursment.mission_road_id != nil %>
+            <%= reimbursment.mission_road.km %>&nbsp;Km
+          <% end %>
+        </p>
+        <p>
+          <table>
+            <thead>
+              <tr></tr>
+            </thead>
+            <tbody>
+              <tr><td>Vitto:</td><td><strong><%= number_to_currency( if reimbursment.food_cost > 0
+              reimbursment.food_cost end ) %>
+              </strong></td></tr>
+              <tr><td>Alloggio::</td><td><strong><%= number_to_currency( if reimbursment.room_cost > 0 
+              reimbursment.room_cost end ) %>
+              </strong></td></tr>
+              <tr><td>Ticket:</td><td><strong><%= number_to_currency(if reimbursment.ticket_cost > 0 
+              reimbursment.ticket_cost end ) %>
+              </strong></td></tr>
+              <tr><td>varie:</td><td><strong><%= number_to_currency( if reimbursment.generic_cost > 0 
+              reimbursment.generic_cost end ) %>
+              </strong></td></tr>
+              <tr><td>Parcheggio:</td><td><strong><%= number_to_currency( if reimbursment.parking_cost > 0 
+              reimbursment.parking_cost end ) %>
+              </strong></td></tr>
+              <tr>
+                <% if reimbursment.mission_road_id != nil %>
+                <td>Autostrada:</td><td><strong><%= number_to_currency(reimbursment.mission_road.highway_cost) %></strong></td>
+                <% end %>
+              </tr>
+              <tr><td><hr></td><td><hr></td></tr>
+              <tr><td>Totale:</td>
+              <td>
+                <h3>
+                <strong>
+              <%= number_to_currency(
+              if reimbursment.mission_road_id != nil
+                reimbursment.mission_road.highway_cost + reimbursment.parking_cost + reimbursment.food_cost + reimbursment.room_cost + reimbursment.ticket_cost + reimbursment.generic_cost
+              else
+                reimbursment.parking_cost + reimbursment.food_cost + reimbursment.room_cost + reimbursment.ticket_cost + reimbursment.generic_cost
+              end) %>
+              </strong>
+              </h3>
+              </td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <p>
+          <table>
+            <thead>
+              <tr>
+                <td>Firma del Richiedente:</td>
+                <td>Data:</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr></tr>
+              <tr></tr>
+              <tr>
+                <td>------------------------------------------</td>
+                <td><%= reimbursment.reimbursment_date.strftime('%d/%m/%Y') %></td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <p>
+          <table>
+            <thead>
+              <tr>
+                <td>Il Segretario organizzativo autorizza il pagamento:</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>&nbsp;</td></tr>
+              <tr></tr>
+              <tr></tr>
+              <tr>
+                <td>-------------------------------------------------------------------</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+    </div>
+    <p style='page-break-before: always'>
+    <% end %>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<div class='panel panel-default'>
+    <div class='panel-body'>
+        <h4>
+            <%= fa_icon('building') %>&nbsp;&nbsp;NUOVO RIMBORSO
+            <span class='pull-right'>
+                <%= link_to fa_icon('arrow-left'), reimbursments_path, class: 'btn btn-default btn-sm' %>
+            </span>
+        </h4>
+        <hr>
+        <%= render 'form', reimbursment: @reimbursment %>
+    </div>
+</div>

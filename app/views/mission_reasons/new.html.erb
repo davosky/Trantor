@@ -1,0 +1,12 @@
+<div class='panel panel-default'>
+    <div class='panel-body'>
+        <h4>
+            <%= fa_icon('wrench') %>&nbsp;&nbsp;NUOVO MOTIVO MISSIONE
+            <span class='pull-right'>
+                <%= link_to fa_icon('arrow-left'), mission_reasons_path, class: 'btn btn-default btn-sm' %>
+            </span>
+        </h4>
+        <hr>
+        <%= render 'form', mission_reason: @mission_reason %>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="36mm"
+   height="9mm"
+   viewBox="0 0 36 9"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="header_reimbursments.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.1150042"
+     inkscape:cx="116.7831"
+     inkscape:cy="24.75541"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1035"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-288)">
+    <g
+       id="g855"
+       transform="matrix(0.61538462,0,0,0.61538462,0.21541734,114.34615)">
+      <rect
+         y="283"
+         x="0.93108422"
+         height="13"
+         width="13"
+         id="rect834"
+         style="opacity:1;fill:#e50000;fill-opacity:1;stroke:none;stroke-width:0.69265682;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <g
+         id="text838"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.31079292px;line-height:1.25;font-family:'Futura Md BT';-inkscape-font-specification:'Futura Md BT';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.72128308"
+         aria-label="CGIL">
+        <path
+           inkscape:connector-curvature="0"
+           id="path840"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura XBlk BT';-inkscape-font-specification:'Futura XBlk BT';stroke:none;stroke-width:0.72128308"
+           d="m 24.698459,288.20676 q -0.608583,-0.58322 -1.242523,-0.87061 -0.63394,-0.28739 -1.335501,-0.28739 -1.090377,0 -1.758127,0.67621 -0.659298,0.66775 -0.659298,1.78348 0,1.09038 0.63394,1.74122 0.63394,0.65085 1.69896,0.65085 0.642393,0 1.30169,-0.27048 0.667751,-0.27894 1.453837,-0.87907 l -0.143694,4.65735 q -0.726918,0.29584 -1.453836,0.43953 Q 22.466989,296 21.740071,296 q -0.904421,0 -1.741222,-0.20286 -0.836801,-0.20286 -1.513004,-0.57478 -1.639792,-0.94668 -2.485046,-2.39206 -0.836801,-1.44539 -0.836801,-3.32185 0,-1.38622 0.473342,-2.56957 0.481795,-1.18336 1.394669,-2.08778 0.921326,-0.91287 2.130039,-1.37776 Q 20.379213,283 21.790786,283 q 0.752276,0 1.479194,0.1606 0.735371,0.15214 1.428479,0.46489 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path842"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura XBlk BT';-inkscape-font-specification:'Futura XBlk BT';stroke:none;stroke-width:0.72128308"
+           d="m 34.528758,291.24122 h -1.935631 v -2.90767 h 6.838101 q 0.01691,0.38036 0.02536,0.56632 0.0085,0.18595 0.0085,0.32965 0,1.06502 -0.202861,1.94408 -0.202861,0.87906 -0.591678,1.55527 -0.946684,1.58907 -2.442783,2.43433 Q 34.731619,296 32.829798,296 q -1.403121,0 -2.611833,-0.46489 -1.20026,-0.47334 -2.130039,-1.38622 -0.921327,-0.91287 -1.394669,-2.08777 -0.473342,-1.17491 -0.473342,-2.55267 0,-1.38622 0.473342,-2.56112 0.481795,-1.18335 1.394669,-2.07932 0.921326,-0.90442 2.130039,-1.37776 1.208712,-0.47335 2.611833,-0.47335 1.901821,0 3.381014,0.8368 1.479194,0.82835 2.417426,2.43433 l -3.96424,1.47075 q -0.312744,-0.51561 -0.752275,-0.76918 -0.439532,-0.25358 -1.005852,-0.25358 -0.988947,0 -1.580624,0.75227 -0.583225,0.75228 -0.583225,2.02016 0,1.31014 0.591677,2.03706 0.591678,0.71847 1.673602,0.71847 0.642393,0 1.039662,-0.27048 0.405722,-0.27049 0.481795,-0.75228 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path844"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura XBlk BT';-inkscape-font-specification:'Futura XBlk BT';stroke:none;stroke-width:0.72128308"
+           d="m 41.172451,295.67035 v -12.37451 h 4.522106 v 12.37451 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path846"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Futura XBlk BT';-inkscape-font-specification:'Futura XBlk BT';stroke:none;stroke-width:0.72128308"
+           d="m 48.086624,295.67035 v -12.37451 h 4.454487 v 8.35955 h 4.327698 v 4.01496 z" />
+      </g>
+    </g>
+  </g>
+</svg>

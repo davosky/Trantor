@@ -1,0 +1,41 @@
+<div class='panel panel-default'>
+  <div class='panel-body'>
+    <h4>
+      <%= fa_icon('map-signs') %>&nbsp;&nbsp;PERCORSO MISSIONE
+      <span class='pull-right'>
+        <%= link_to fa_icon('arrow-left'), mission_roads_path, class: 'btn btn-default btn-sm' %>
+        &nbsp;
+        <%= link_to fa_icon('pencil'), edit_mission_road_path(@mission_road), class: 'btn btn-default btn-sm', id: 'text-warning' %>
+      </span>
+    </h4>
+    <hr>
+    <dl class='dl-horizontal'>
+      <dt>PERCORSO MISSIONE:</dt>
+      <dd>
+        <%= @mission_road.name %>
+      </dd>
+      <dt>KM PERCORSO:</dt>
+      <dd>
+        <%= @mission_road.km %>
+      </dd>
+      <dt>COSTO AUTOSTRADA:</dt>
+      <dd>
+        <%= number_to_currency(@mission_road.highway_cost) %>
+      </dd>
+      <dt>
+        <h6>
+          <small>
+            Posizione
+          </small>
+        </h6>
+      </dt>
+      <dd>
+        <h6>
+          <small>
+            <%= @mission_road.position %>
+          </small>
+        </h6>
+      </dd>
+    </dl>
+  </div>
+</div>

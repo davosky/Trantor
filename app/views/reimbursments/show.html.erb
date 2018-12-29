@@ -1,0 +1,143 @@
+<div class='panel panel-default'>
+  <div class='panel-body'>
+    <h4>
+      <%= fa_icon('credit-card') %>&nbsp;&nbsp;RIMBORSO N°&nbsp;<%= @reimbursment.name %>&nbsp;DEL:&nbsp;<%= @reimbursment.departure_date.strftime('%d/%m/%Y') %>
+      <span class='pull-right'>
+        <%= link_to fa_icon('arrow-left'), reimbursments_path, class: 'btn btn-default btn-sm' %>
+        &nbsp;
+        <%= link_to fa_icon('pencil'), edit_reimbursment_path(@reimbursment), class: 'btn btn-default btn-sm', id: 'text-warning' %>
+      </span>
+    </h4>
+    <hr>
+    <div class='row'>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Tipologia Mezzo:</dt>
+          <dd><%= @reimbursment.transport_type.name %></dd>
+          <dt>mezzo:</dt>
+          <dd>
+            <%= @reimbursment.veichle.producer %>
+            &nbsp;
+            <%= @reimbursment.veichle.name %>
+            <br>
+            TARGA:&nbsp;<%= @reimbursment.veichle.licenceplate %>
+          </dd>
+        </dl>
+      </div>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Luogo Missione:</dt>
+          <dd><%= @reimbursment.mission_place.name %></dd>
+          <dt>Struttura:</dt>
+          <dd>
+            <% if @reimbursment.mission_structure != nil %>
+              <%= @reimbursment.mission_structure.name %>
+            <% end %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <hr>
+    <div class='row'>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Motivo Missione:</dt>
+          <dd><%= @reimbursment.mission_reason.name %></dd>
+          <dt>Data Partenza:</dt>
+          <dd><%= @reimbursment.departure_date.strftime('%d/%m/%Y') %></dd>
+          <dt>Data Rientro:</dt>
+          <dd><%= @reimbursment.return_date.strftime('%d/%m/%Y') %></dd>
+        </dl>
+      </div>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Data Richiesta Missione:</dt>
+          <dd><%= @reimbursment.request_date.strftime('%d/%m/%Y') %></dd>
+          <dt>Data Rimborso:</dt>
+          <dd><%= @reimbursment.reimbursment_date.strftime('%d/%m/%Y') %></dd>
+        </dl>
+      </div>
+    </div>
+    <hr>
+    <div class='row'>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Percorso:</dt>
+          <dd id='condensed' >
+            <% if @reimbursment.mission_road_id != nil %>
+              <%= @reimbursment.mission_road.name %>
+            <% end %>
+          </dd>
+          <dt>Lunghezza Percorso:</dt>
+          <dd>
+            <% if @reimbursment.mission_road_id != nil %>
+              <%= @reimbursment.mission_road.km %>&nbsp;Km
+            <% end %>
+          </dd>
+        </dl>
+      </div>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Costo Autostrada:</dt>
+          <dd>
+            <% if @reimbursment.mission_road_id != nil %>
+              <%= number_to_currency(@reimbursment.mission_road.highway_cost) %>
+            <% end %>
+          </dd>
+          <dt>Costo Parcheggio:</dt>
+          <dd>
+            <% if @reimbursment.parking_cost > 0 %>
+              <%= number_to_currency(@reimbursment.parking_cost) %>
+            <% end %>
+          </dd>
+          <dt>Costo Vitto:</dt>
+          <dd>
+            <% if @reimbursment.food_cost > 0 %>
+              <%= number_to_currency(@reimbursment.food_cost) %>
+            <% end %>
+          </dd>
+          <dt>Costo Alloggio:</dt>
+          <dd>
+            <% if @reimbursment.room_cost > 0 %>
+              <%= number_to_currency(@reimbursment.room_cost) %>
+            <% end %>
+          </dd>
+          <dt>Costo Ticket:</dt>
+          <dd>
+            <% if @reimbursment.ticket_cost > 0 %>
+              <%= number_to_currency(@reimbursment.ticket_cost) %>
+            <% end %>
+          </dd>
+          <dt>Costi Vari:</dt>
+          <dd>
+            <% if @reimbursment.generic_cost > 0 %>
+              <%= number_to_currency(@reimbursment.generic_cost) %>
+            <% end %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <hr>
+    <div class='row'>
+      <div class='col col-md-6'>
+        &nbsp;
+      </div>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Totale:</dt>
+          <dd id='text-info'>
+            <strong>
+            <%= number_to_currency(
+              if @reimbursment.mission_road_id != nil
+                @reimbursment.mission_road.highway_cost + @reimbursment.parking_cost + @reimbursment.food_cost + @reimbursment.room_cost + @reimbursment.ticket_cost + @reimbursment.generic_cost
+              else
+                @reimbursment.parking_cost + @reimbursment.food_cost + @reimbursment.room_cost + @reimbursment.ticket_cost + @reimbursment.generic_cost
+              end
+            ) %>
+            </strong>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>

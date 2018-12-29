@@ -1,0 +1,54 @@
+
+<div class='panel panel-default'>
+  <div class='panel-body'>
+    <h4>
+      <%= fa_icon('credit-card') %>&nbsp;&nbsp;ELENCO RIMBORSI
+    </h4>
+    <hr>
+    <table class='table table-striped table-hover'>
+      <thead>
+        <tr>
+          <th>N°</th>
+          <th>Trasporto</th>
+          <th>Luogo Missione</th>
+          <th>Motivo Missione</th>
+          <th>Data Partenza</th>
+          <th>Data Rientro</th>
+          <th colspan='2'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reimbursments.each do |reimbursment| %>
+        <tr>
+          <td>
+            <strong>
+              <%= link_to reimbursment.name, reimbursment, id: 'text-info' %>
+            </strong>
+          </td>
+          <td>
+            <%= reimbursment.transport_type.name %>
+          </td>
+          <td>
+            <%= reimbursment.mission_place.name %>
+          </td>
+          <td>
+            <%= reimbursment.mission_reason.name %>
+          </td>
+          <td>
+            <%= reimbursment.departure_date.strftime('%d/%m/%Y') %>
+          </td>
+          <td>
+            <%= reimbursment.return_date.strftime('%d/%m/%Y') %>
+          </td>
+          <td>
+            <%= link_to fa_icon('pencil'), edit_reimbursment_path(reimbursment), id: 'text-warning' %>
+          </td>
+          <td>
+            <%= link_to fa_icon('trash'), reimbursment, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il rimborso corrente?' }, id: 'text-danger' %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+json.extract! reimbursment, :id, :name, :transport_type_id, :veichle_id, :mission_place_id, :mission_structure_id, :mission_reason_id, :departure_date, :return_date, :request_date, :reimbursment_date, :mission_road_id, :parking_cost, :food_cost, :room_cost, :ticket_cost, :generic_cost, :costkm, :secretary, :institute, :address, :user_id, :created_at, :updated_at
+json.url reimbursment_url(reimbursment, format: :json)
