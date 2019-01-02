@@ -14,25 +14,25 @@
   <div class='col col-md-6'>
     <div class='field'>
       <%= form.label 'TIPOLOGIA MEZZO:', id:'text-info' %>
-      <%= form.collection_select(:transport_type_id, TransportType.order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      <%= form.collection_select(:transport_type_id, TransportType.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
     </div>
     <div class='field'>
 <%= form.label 'MEZZO:', id:'text-info' %>
-      <%= form.collection_select(:veichle_id, Veichle.order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      <%= form.collection_select(:veichle_id, Veichle.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
     </div>
     <div class='field'>
 <%= form.label 'LUOGO MISSIONE', id:'text-info' %>
-      <%= form.collection_select(:mission_place_id, MissionPlace.order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      <%= form.collection_select(:mission_place_id, MissionPlace.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
     </div>
     <div class='field'>
 <%= form.label 'STRUTTURA', id:'text-info' %>
-      <%= form.collection_select(:mission_structure_id, MissionStructure.order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      <%= form.collection_select(:mission_structure_id, MissionStructure.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
     </div>
   </div>
   <div class='col col-md-6'>
     <div class='field'>
       <%= form.label 'MOTIVO MISSIONE', id:'text-info' %>
-      <%= form.collection_select(:mission_reason_id, MissionReason.order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      <%= form.collection_select(:mission_reason_id, MissionReason.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
     </div>
     <div class='field'>
       <%= form.label 'DATA PARTENZA', id:'text-info' %>
@@ -57,7 +57,7 @@
   <div class='col col-lg-6'>
     <div class='field'>
     <%= form.label 'PERCORSO', id:'text-info' %>
-    <%= form.collection_select(:mission_road_id, MissionRoad.order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+    <%= form.collection_select(:mission_road_id, MissionRoad.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
     </div>
     <div class='field'>
       <%= form.label 'PARCHEGGIO', id:'text-info' %>
