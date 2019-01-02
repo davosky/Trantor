@@ -32,6 +32,7 @@ gem 'will-paginate-i18n', '~> 0.1.15'
 gem 'wkhtmltopdf_binary', '~> 0.12.3.2'
 
 group :development do
+  gem 'solargraph-rails', '~> 0.1.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
