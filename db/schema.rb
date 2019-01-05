@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_03_173334) do
+ActiveRecord::Schema.define(version: 2019_01_03_181009) do
 
   create_table "mission_places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -74,6 +74,12 @@ ActiveRecord::Schema.define(version: 2019_01_03_173334) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mission_place_free"
+    t.string "mission_structure_free"
+    t.string "mission_reason_free"
+    t.string "mission_path_free"
+    t.decimal "mission_path_km", precision: 8, scale: 2, default: "0.0"
+    t.decimal "highway_cost_free", precision: 8, scale: 2, default: "0.0"
     t.index ["mission_place_id"], name: "index_reimbursments_on_mission_place_id"
     t.index ["mission_reason_id"], name: "index_reimbursments_on_mission_reason_id"
     t.index ["mission_road_id"], name: "index_reimbursments_on_mission_road_id"
