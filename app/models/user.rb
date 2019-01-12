@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :mission_structures
   has_many :mission_roads
   has_many :mission_reasons
-  has_many :mission_pleaces
+  has_many :mission_places
 
   validates :name, presence: true
   validates :institute, presence: true
