@@ -42,10 +42,13 @@
               <% end %>
             <% end %>
             <li>
+              <%= link_to fa_icon('user') + ' ' + ' PROFILO', edit_user_registration_path %>
+            </li>
+            <li>
               <%= link_to fa_icon('info-circle') + ' ' + ' INFO', home_about_path %>
             </li>
             <li>
-              <%= link_to fa_icon('user') + ' ' + ' ESCI', destroy_user_session_path, method: :delete %>
+              <%= link_to fa_icon('times') + ' ' + ' ESCI', destroy_user_session_path, method: :delete %>
             </li>
           </ul>
         </li>
