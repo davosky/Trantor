@@ -1,5 +1,6 @@
 class MissionRoad < ApplicationRecord
   belongs_to :user
+  has_many :reimbursments
 
   validates :name, presence: true
   validates :km, presence: true

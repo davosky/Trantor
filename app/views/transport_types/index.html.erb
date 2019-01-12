@@ -11,7 +11,7 @@
       <thead>
         <tr>
           <th>TIPOLOGIA MEZZO</th>
-          <th colspan='1'></th>
+          <th>Posizione</th>
           <th colspan='2'></th>
         </tr>
       </thead>
@@ -24,8 +24,15 @@
                 <%= transport_type.position %>
               </small>
             </td>
-            <td><%= link_to fa_icon('pencil'), edit_transport_type_path(transport_type), id: 'text-warning' %></td>
-            <td><%= link_to fa_icon('trash'), transport_type, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare la Tipologia Mezzo corrente?' }, id: 'text-danger' %></td>
+            <td>
+              <%= link_to fa_icon('pencil'), edit_transport_type_path(transport_type), id: 'text-warning' %>
+            </td>
+            <td>
+              <% if transport_type.name == 'AUTOVETTURA PRIVATA' || transport_type.name == 'AUTOVETTURA AZIENDALE' %>
+              <% else %>
+              <%= link_to fa_icon('trash'), transport_type, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare la Tipologia Mezzo corrente?' }, id: 'text-danger' %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

@@ -1,0 +1,141 @@
+<div class='panel panel-default'>
+  <div class='panel-body'>
+    <h4>
+      <%= fa_icon('credit-card') %>&nbsp;&nbsp;RIMBORSO N°&nbsp;<%= @free_reimbursment.name %>&nbsp;DEL:&nbsp;<%= @free_reimbursment.departure_date.strftime('%d/%m/%Y') %>
+      <span class='pull-right'>
+        <%= link_to fa_icon('arrow-left'), free_reimbursments_path, class: 'btn btn-default btn-sm' %>
+        &nbsp;
+        <%= link_to fa_icon('pencil'), edit_free_reimbursment_path(@free_reimbursment), class: 'btn btn-default btn-sm', id: 'text-warning' %>
+      </span>
+    </h4>
+    <hr>
+    <div class='row'>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Tipologia Mezzo:</dt>
+          <dd>
+            <% if @free_reimbursment.transport_type_id != nil %>
+              <%= @free_reimbursment.transport_type.name %>
+            <% end %>
+          </dd>
+          <dt>mezzo:</dt>
+          <dd>
+            <% if @free_reimbursment.veichle_id != nil %>
+            <%= @free_reimbursment.veichle.producer %>
+            &nbsp;
+            <%= @free_reimbursment.veichle.name %>
+            <br>
+            TARGA:&nbsp;<%= @free_reimbursment.veichle.licenceplate %>
+            <% end %>
+          </dd>
+        </dl>
+      </div>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Luogo Missione:</dt>
+          <dd><%= @free_reimbursment.mission_place %></dd>
+          <dt>Struttura:</dt>
+          <dd>
+            <%= @free_reimbursment.mission_structure %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <hr>
+    <div class='row'>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Motivo Missione:</dt>
+          <dd><%= @free_reimbursment.mission_reason %></dd>
+          <dt>Data Partenza:</dt>
+          <dd><%= @free_reimbursment.departure_date.strftime('%d/%m/%Y') %></dd>
+          <dt>Data Rientro:</dt>
+          <dd><%= @free_reimbursment.return_date.strftime('%d/%m/%Y') %></dd>
+        </dl>
+      </div>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Data Richiesta Missione:</dt>
+          <dd><%= @free_reimbursment.request_date.strftime('%d/%m/%Y') %></dd>
+          <dt>Data Rimborso:</dt>
+          <dd><%= @free_reimbursment.reimbursment_date.strftime('%d/%m/%Y') %></dd>
+        </dl>
+      </div>
+    </div>
+    <hr>
+    <div class='row'>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Percorso:</dt>
+          <dd id='condensed' >
+            <%= @free_reimbursment.mission_road %>
+          </dd>
+          <dt>Lunghezza Percorso:</dt>
+          <dd>
+            <%= @free_reimbursment.mission_road_km %>&nbsp;Km
+          </dd>
+        </dl>
+      </div>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Costo Autostrada:</dt>
+          <dd>
+            <% if @free_reimbursment.mission_road_hw > 0 %>
+            <%= number_to_currency(@free_reimbursment.mission_road_hw) %>
+            <% end %>
+          </dd>
+          <dt>Costo Parcheggio:</dt>
+          <dd>
+            <% if @free_reimbursment.parking_cost > 0 %>
+              <%= number_to_currency(@free_reimbursment.parking_cost) %>
+            <% end %>
+          </dd>
+          <dt>Costo Vitto:</dt>
+          <dd>
+            <% if @free_reimbursment.food_cost > 0 %>
+              <%= number_to_currency(@free_reimbursment.food_cost) %>
+            <% end %>
+          </dd>
+          <dt>Costo Alloggio:</dt>
+          <dd>
+            <% if @free_reimbursment.room_cost > 0 %>
+              <%= number_to_currency(@free_reimbursment.room_cost) %>
+            <% end %>
+          </dd>
+          <dt>Costo Ticket:</dt>
+          <dd>
+            <% if @free_reimbursment.ticket_cost > 0 %>
+              <%= number_to_currency(@free_reimbursment.ticket_cost) %>
+            <% end %>
+          </dd>
+          <dt>Costi Vari:</dt>
+          <dd>
+            <% if @free_reimbursment.generic_cost > 0 %>
+              <%= number_to_currency(@free_reimbursment.generic_cost) %>
+            <% end %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+    <hr>
+    <div class='row'>
+      <div class='col col-md-6'>
+        &nbsp;
+      </div>
+      <div class='col col-md-6'>
+        <dl class='dl-horizontal'>
+          <dt>Totale:</dt>
+          <dd id='text-info'>
+            <strong>
+            <% if @free_reimbursment.mission_road_km != nil && @free_reimbursment.transport_type.name == 'AUTOVETTURA PRIVATA' %>
+            <%= number_to_currency((@free_reimbursment.mission_road_km * @free_reimbursment.costkm) + @free_reimbursment.mission_road_hw + @free_reimbursment.parking_cost + @free_reimbursment.food_cost + @free_reimbursment.room_cost + @free_reimbursment.ticket_cost + @free_reimbursment.generic_cost) %>
+            <% else %>
+            <%= number_to_currency(@free_reimbursment.mission_road_hw + @free_reimbursment.parking_cost + @free_reimbursment.food_cost + @free_reimbursment.room_cost + @free_reimbursment.ticket_cost + @free_reimbursment.generic_cost) %>
+            <% end %>
+            </strong>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>

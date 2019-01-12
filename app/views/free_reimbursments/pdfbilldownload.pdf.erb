@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'/>
+    <%= stylesheet_link_tag wicked_pdf_asset_base64('pdfbilldownload') %>
+  </head>
+  <body>
+    <% @free_reimbursments.each do |free_reimbursment| %>
+    <div id='page'>
+      <div id='header'>
+        <div id='logo'>
+          <h2>
+            <strong>
+              <%= inline_svg('header_reimbursments.svg', size: '36mm * 8mm', preserve_aspect_ratio: 'xMaxYMax meet') %>
+              &nbsp;&nbsp;&nbsp;<%= current_user.institute %>
+            </strong>
+          </h2>
+        </div>
+        <hr>
+        <h3>FOGLIO MISSIONE</h3>
+        <p>
+        Il Segretario Generale della <strong><%= current_user.institute %> <%= current_user.secretary %></strong> autorizza:
+        <br>
+        <strong><%= current_user.name %></strong> alla missione con il seguente mezzo di trasporto:
+        </p>
+        <p>
+        <% if free_reimbursment.transport_type_id != nil %>
+          <strong><%= free_reimbursment.transport_type.name %></strong>
+        <% end %>
+        <br>
+        <% if free_reimbursment.veichle_id == nil %>
+        &nbsp;
+        <% else %>
+        <% if if free_reimbursment.veichle.name != '-' %>
+          Produttore:&nbsp;&nbsp;&nbsp;
+            <strong><%= free_reimbursment.veichle.producer %></strong>
+            &nbsp;&nbsp;&nbsp;
+            Modello:&nbsp;&nbsp;&nbsp;
+            <strong><%= free_reimbursment.veichle.name %></strong>
+            &nbsp;&nbsp;&nbsp;
+            Targa:&nbsp;&nbsp;&nbsp;
+            <strong><%= free_reimbursment.veichle.licenceplate %></strong>
+        <% else %>
+        &nbsp;
+        <% end %>
+        <% end %>
+        <% end %>
+        </p>
+        <p>
+          Luogo della Missione:&nbsp;&nbsp;<strong><%= free_reimbursment.mission_place %></strong>
+          &nbsp;&nbsp;
+          Motivo del viaggio:&nbsp;&nbsp;<strong><%= free_reimbursment.mission_reason %></strong>
+        </p>
+        <p>
+          Partenza il:&nbsp;&nbsp;<strong><%= free_reimbursment.departure_date.strftime('%d/%m/%Y') %></strong>
+          &nbsp;&nbsp;
+          Rientro il:&nbsp;&nbsp;<strong><%= free_reimbursment.return_date.strftime('%d/%m/%Y') %></strong>
+        </p>
+        <p>
+          <table>
+            <thead>
+              <tr>
+                <td>Firma del Segretario Generale:</td>
+                <td>Data:</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr></tr>
+              <tr></tr>
+              <tr>
+                <td>------------------------------------------</td>
+                <td>
+                <strong><%= free_reimbursment.request_date.strftime('%d/%m/%Y') %></strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <hr>
+        <h3>RIMBORSO SPESE DI:</h3>
+        <h4><%= current_user.name %></h4>
+        <p>
+          Percorso:&nbsp;&nbsp;
+          <strong><%= free_reimbursment.mission_road %></strong>
+          <br>
+          <% if free_reimbursment.veichle_id != nil && free_reimbursment.veichle.name != '-' %>
+          Lunghezza Percorso:&nbsp;&nbsp;
+          <% end %>
+          <strong>
+          <% if free_reimbursment.mission_road_km > 0%>
+          <%= free_reimbursment.mission_road_km %>&nbsp;Km
+          <% end %>
+          </strong>
+        </p>
+        <p>
+          <table>
+            <thead>
+              <tr></tr>
+            </thead>
+            <tbody>
+              <tr><td>Vitto:</td><td><strong><%= number_to_currency( if free_reimbursment.food_cost > 0
+              free_reimbursment.food_cost end ) %>
+              </strong></td></tr>
+              <tr><td>Alloggio::</td><td><strong><%= number_to_currency( if free_reimbursment.room_cost > 0
+              free_reimbursment.room_cost end ) %>
+              </strong></td></tr>
+              <tr><td>Ticket:</td><td><strong><%= number_to_currency(if free_reimbursment.ticket_cost > 0
+              free_reimbursment.ticket_cost end ) %>
+              </strong></td></tr>
+              <tr><td>varie:</td><td><strong><%= number_to_currency( if free_reimbursment.generic_cost > 0
+              free_reimbursment.generic_cost end ) %>
+              </strong></td></tr>
+              <tr><td>Parcheggio:</td><td><strong><%= number_to_currency( if free_reimbursment.parking_cost > 0
+              free_reimbursment.parking_cost end ) %>
+              </strong></td></tr>
+              <tr>
+                <td>Autostrada:</td><td><strong><%= number_to_currency(free_reimbursment.mission_road_hw) %></strong></td>
+              </tr>
+              <tr><td><hr></td><td><hr></td></tr>
+              <tr><td>Totale:</td>
+              <td>
+                <h3>
+                <strong>
+                <% if free_reimbursment.mission_road_km != nil && free_reimbursment.transport_type.name == 'AUTOVETTURA PRIVATA' %>
+                <%= number_to_currency((free_reimbursment.mission_road_km * free_reimbursment.costkm) + free_reimbursment.mission_road_hw + free_reimbursment.parking_cost + free_reimbursment.food_cost + free_reimbursment.room_cost + free_reimbursment.ticket_cost + free_reimbursment.generic_cost) %>
+                <% else %>
+                <%= number_to_currency(free_reimbursment.mission_road_hw + free_reimbursment.parking_cost + free_reimbursment.food_cost + free_reimbursment.room_cost + free_reimbursment.ticket_cost + free_reimbursment.generic_cost) %>
+                <% end %>
+                </strong>
+                </h3>
+              </td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <p>
+          <table>
+            <thead>
+              <tr>
+                <td>Firma del Richiedente:</td>
+                <td>Data:</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+              <tr></tr>
+              <tr></tr>
+              <tr>
+                <td>------------------------------------------</td>
+                <td>
+                  <strong>
+                    <%= free_reimbursment.reimbursment_date.strftime('%d/%m/%Y') %>
+                  </strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+        <p>
+          <table>
+            <thead>
+              <tr>
+                <td>Il Segretario organizzativo autorizza il pagamento:</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>&nbsp;</td></tr>
+              <tr></tr>
+              <tr></tr>
+              <tr>
+                <td>-------------------------------------------------------------------</td>
+              </tr>
+            </tbody>
+          </table>
+        </p>
+    </div>
+    <p style='page-break-before: always'>
+    <% end %>
+  </body>
+</html>

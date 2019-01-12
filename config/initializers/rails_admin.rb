@@ -204,7 +204,7 @@ RailsAdmin.config do |config|
       label 'Posizione:'
     end
     configure :user do
-      visible false
+      label 'Utente:'
     end
     configure :created_at do
       label 'Creato il:'

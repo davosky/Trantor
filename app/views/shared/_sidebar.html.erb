@@ -11,6 +11,7 @@
             <span class='caret'></span></a>
           </a>
           <ul class='dropdown-menu' role='menu'>
+            <% if current_user.user_typology == 'CESI' %>
             <li>
               <%= link_to fa_icon('truck') + ' ' + ' TIPOLOGIE MEZZO', transport_types_path %>
             </li>
@@ -29,21 +30,47 @@
             <li>
               <%= link_to fa_icon('map-signs') + ' ' + ' PERCORSI MISSIONE', mission_roads_path %>
             </li>
+            <% else %>
+            <li>
+              <%= link_to fa_icon('truck') + ' ' + ' TIPOLOGIE MEZZO', transport_types_path %>
+            </li>
+            <li>
+              <%= link_to fa_icon('car') + ' ' + ' MEZZI', veichles_path %>
+            </li>
+            <% end %>
           </ul>
         </li>
         <li>
-          <%= link_to new_reimbursment_path do %>
-            <%= fa_icon('pencil') %>&nbsp;<%= fa_icon('credit-card') %>&nbsp;<strong>NUOVO RIMBORSO</strong>
+          <% if current_user.user_typology == 'CESI' %>
+            <%= link_to new_reimbursment_path do %>
+              <%= fa_icon('pencil') %>&nbsp;<%= fa_icon('credit-card') %>&nbsp;<strong>NUOVO RIMBORSO</strong>
+            <% end %>
+          <% else %>
+            <%= link_to new_free_reimbursment_path do %>
+              <%= fa_icon('pencil') %>&nbsp;<%= fa_icon('credit-card') %>&nbsp;<strong>NUOVO RIMBORSO</strong>
+            <% end %>
           <% end %>
         </li>
         <li>
-          <%= link_to reimbursments_path do %>
-            <%= fa_icon('list') %>&nbsp;<%= fa_icon('credit-card') %>&nbsp;<strong>ELENCO RIMBORSI</strong>
+          <% if current_user.user_typology == 'CESI' %>
+            <%= link_to reimbursments_path do %>
+              <%= fa_icon('list') %>&nbsp;<%= fa_icon('credit-card') %>&nbsp;<strong>ELENCO RIMBORSI</strong>
+            <% end %>
+          <% else %>
+            <%= link_to free_reimbursments_path do %>
+              <%= fa_icon('list') %>&nbsp;<%= fa_icon('credit-card') %>&nbsp;<strong>ELENCO RIMBORSI</strong>
+            <% end %>
           <% end %>
         </li>
         <li>
-          <%= link_to billdownload_reimbursments_path do %>
-            <%= fa_icon('print') %>&nbsp;<%= fa_icon('credit-card') %>&nbsp;<strong>STAMPA RIMBORSI</strong>
+          <% if current_user.user_typology == 'CESI' %>
+            <%= link_to billdownload_reimbursments_path do %>
+              <%= fa_icon('print') %>&nbsp;<%= fa_icon('credit-card') %>&nbsp;<strong>STAMPA RIMBORSI</strong>
+            <% end %>
+          <% else %>
+            <%= link_to billdownload_free_reimbursments_path do %>
+              <%= fa_icon('print') %>&nbsp;<%= fa_icon('credit-card') %>&nbsp;<strong>STAMPA RIMBORSI</strong>
+            <% end %>
           <% end %>
         </li>
       </ul>

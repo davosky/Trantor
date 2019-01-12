@@ -1,6 +1,6 @@
 <div class='row'>
   <div class='col col-md-4'>
-    <%= form_with(model: transport_type, local: true) do |form| %>
+    <%= form_with(model: transport_type, local: true, id: 'formtransport') do |form| %>
     <% if transport_type.errors.any? %>
     <div id='error_explanation'>
       <h2>
@@ -16,11 +16,15 @@
     <% end %>
     <div class='field'>
       <%= form.label 'TIPOLOGIA MEZZO' %>
-      <%= form.text_field :name, class: 'form-control' %>
+      <% if @transport_type.name == 'AUTOVETTURA PRIVATA' || @transport_type.name == 'AUTOVETTURA AZIENDALE' %>
+        <%= form.text_field :name, class: 'form-control', id: 'name', disabled: true %>
+      <% else %>
+        <%= form.text_field :name, class: 'form-control', id: 'name' %>
+      <% end %>
     </div>
     <div class='field'>
       <%= form.label 'POSIZIONE' %>
-      <%= form.number_field :position, class: 'form-control' %>
+      <%= form.number_field :position, class: 'form-control', id: 'position' %>
     </div>
     <br>
     <div class='form-group'>
@@ -31,3 +35,23 @@
     <% end %>
   </div>
 </div>
+<script>
+  $(document).ready(function () {
+    $('.datepicker').datepicker({
+      language: 'it'
+    });
+  });
+
+  $('#formtransport').submit(function () {
+    if ($('#name').val() == "") {
+      alert("Devi inserire una Tipologia");
+      return false;
+    };
+
+    if ($('#name').val() == "AUTOVETTURA PRIVATA" || $('#name').val() == "AUTOVETTURA AZIENDALE") {
+      alert("Questa Tipologia è Riserveta");
+      return false;
+    };
+    return;
+  });
+</script>

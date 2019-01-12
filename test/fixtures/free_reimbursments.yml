@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 1
+  transport_type_id: 1
+  veichle_id: 1
+  mission_place: MyString
+  mission_structure: MyString
+  mission_reason: MyString
+  departure_date: 2019-01-05
+  return_date: 2019-01-05
+  request_date: 2019-01-05
+  reimbursment_date: 2019-01-05
+  mission_road: MyString
+  mission_road_km: 9.99
+  mission_road_hw: 9.99
+  parking_cost: 9.99
+  food_cost: 9.99
+  room_cost: 9.99
+  ticket_cost: 9.99
+  generic_cost: 9.99
+  costkm: 9.99
+  secretary: MyString
+  institute: MyString
+  address: MyString
+  user: one
+
+two:
+  name: 1
+  transport_type_id: 1
+  veichle_id: 1
+  mission_place: MyString
+  mission_structure: MyString
+  mission_reason: MyString
+  departure_date: 2019-01-05
+  return_date: 2019-01-05
+  request_date: 2019-01-05
+  reimbursment_date: 2019-01-05
+  mission_road: MyString
+  mission_road_km: 9.99
+  mission_road_hw: 9.99
+  parking_cost: 9.99
+  food_cost: 9.99
+  room_cost: 9.99
+  ticket_cost: 9.99
+  generic_cost: 9.99
+  costkm: 9.99
+  secretary: MyString
+  institute: MyString
+  address: MyString
+  user: two

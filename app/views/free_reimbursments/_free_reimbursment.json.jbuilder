@@ -1,0 +1,2 @@
+json.extract! free_reimbursment, :id, :name, :transport_type_id, :veichle_id, :mission_place, :mission_structure, :mission_reason, :departure_date, :return_date, :request_date, :reimbursment_date, :mission_road, :mission_road_km, :mission_road_hw, :parking_cost, :food_cost, :room_cost, :ticket_cost, :generic_cost, :costkm, :secretary, :institute, :address, :user_id, :created_at, :updated_at
+json.url free_reimbursment_url(free_reimbursment, format: :json)

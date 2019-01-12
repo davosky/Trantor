@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_03_181009) do
+ActiveRecord::Schema.define(version: 2019_01_05_093625) do
+
+  create_table "free_reimbursments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "name"
+    t.integer "transport_type_id"
+    t.integer "veichle_id"
+    t.string "mission_place"
+    t.string "mission_structure"
+    t.string "mission_reason"
+    t.date "departure_date"
+    t.date "return_date"
+    t.date "request_date"
+    t.date "reimbursment_date"
+    t.string "mission_road"
+    t.decimal "mission_road_km", precision: 8, scale: 2, default: "0.0"
+    t.decimal "mission_road_hw", precision: 8, scale: 2, default: "0.0"
+    t.decimal "parking_cost", precision: 8, scale: 2, default: "0.0"
+    t.decimal "food_cost", precision: 8, scale: 2, default: "0.0"
+    t.decimal "room_cost", precision: 8, scale: 2, default: "0.0"
+    t.decimal "ticket_cost", precision: 8, scale: 2, default: "0.0"
+    t.decimal "generic_cost", precision: 8, scale: 2, default: "0.0"
+    t.decimal "costkm", precision: 8, scale: 2, default: "0.0"
+    t.string "secretary"
+    t.string "institute"
+    t.string "address"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_free_reimbursments_on_user_id"
+  end
 
   create_table "mission_places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -105,13 +134,11 @@ ActiveRecord::Schema.define(version: 2019_01_03_181009) do
     t.string "name"
     t.string "institute"
     t.string "office"
-    t.string "address"
     t.string "category"
+    t.string "address"
     t.string "phone"
     t.string "pec"
     t.string "secretary"
-    t.string "user_typology"
-    t.decimal "cost_per_km", precision: 8, scale: 2, default: "0.0"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -119,6 +146,8 @@ ActiveRecord::Schema.define(version: 2019_01_03_181009) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_typology"
+    t.decimal "cost_per_km", precision: 8, scale: 2, default: "0.0"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -134,6 +163,7 @@ ActiveRecord::Schema.define(version: 2019_01_03_181009) do
     t.index ["user_id"], name: "index_veichles_on_user_id"
   end
 
+  add_foreign_key "free_reimbursments", "users"
   add_foreign_key "mission_places", "users"
   add_foreign_key "mission_reasons", "users"
   add_foreign_key "mission_roads", "users"

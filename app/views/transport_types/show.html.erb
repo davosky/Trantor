@@ -5,7 +5,10 @@
       <span class='pull-right'>
         <%= link_to fa_icon('arrow-left'), transport_types_path, class: 'btn btn-default btn-sm' %>
         &nbsp;
+        <% if @transport_type.name == 'AUTOVETTURA PRIVATA' || @transport_type.name == 'AUTOVETTURA AZIENDALE' %>
+        <% else %>
         <%= link_to fa_icon('pencil'), edit_transport_type_path(@transport_type), class: 'btn btn-default btn-sm', id: 'text-warning' %>
+        <% end %>
       </span>
     </h4>
     <hr>

@@ -28,8 +28,13 @@
                   <%= veichle.position %>
                 </small>
             </td>
-            <td><%= link_to fa_icon('pencil'), edit_veichle_path(veichle), id: 'text-warning' %></td>
-            <td><%= link_to fa_icon('trash'), veichle, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il Mezzo corrente?' }, id: 'text-danger' %></td>
+            <% if veichle.name == '-' %>
+              <td></td>
+              <td></td>
+            <%else %>
+              <td><%= link_to fa_icon('pencil'), edit_veichle_path(veichle), id: 'text-warning' %></td>
+              <td><%= link_to fa_icon('trash'), veichle, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il Mezzo corrente?' }, id: 'text-danger' %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

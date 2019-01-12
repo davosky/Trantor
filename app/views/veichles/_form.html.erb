@@ -1,6 +1,6 @@
 <div class='row'>
   <div class='col col-md-4'>
-    <%= form_with(model: veichle, local: true) do |form| %>
+    <%= form_with(model: veichle, local: true, id: 'formveichle') do |form| %>
     <% if veichle.errors.any? %>
     <div id='error_explanation'>
       <h2>
@@ -16,7 +16,7 @@
     <% end %>
     <div class='field'>
       <%= form.label 'MEZZO:' %>
-      <%= form.text_field :name, class: 'form-control' %>
+      <%= form.text_field :name, class: 'form-control', id: 'name' %>
     </div>
     <div class='field'>
       <%= form.label 'PRODUTTORE:' %>
@@ -39,3 +39,12 @@
     <% end %>
   </div>
 </div>
+<script>
+  $('#formveichle').submit(function () {
+    if ($('#name').val() == "-") {
+      alert("Questo Carattere è Riservato");
+      return false;
+    };
+    return;
+  });
+</script>

@@ -110,7 +110,7 @@
               </strong></td></tr>
               <tr>
                 <% if reimbursment.mission_road_id != nil %>
-                <td>Autostrada:</td><td><strong><%= number_to_currency(reimbursment.mission_road.highway_cost) %></strong></td>
+                <td>Autostrada:</td><td><strong><%= number_to_currency( if reimbursment.mission_road.highway_cost > 0 then reimbursment.mission_road.highway_cost end ) %></strong></td>
                 <% end %>
               </tr>
               <tr><td><hr></td><td><hr></td></tr>

@@ -6,7 +6,7 @@
     <hr>
     <div class='row'>
       <div class='col col-md-4'>
-        <%= search_form_for @q, id: 'search-form', url: billdownload_reimbursments_path do |f| %>
+        <%= search_form_for @q, id: 'search-form', url: billdownload_free_reimbursments_path do |f| %>
         <div class='field'>
           <%= f.label 'Data Inizio:' %><br>
           <%= f.text_field :departure_date_gteq, class: 'datepicker form-control', id: 'departure' %>
@@ -23,9 +23,9 @@
           <%= button_tag type: 'submit', class: 'btn btn-default btn-sm', id: 'text-success' do %>
           <%= fa_icon('search') %>
           <% end %>
-          <% if @reimbursments.count > 0 %>
+          <% if @free_reimbursments.count > 0 %>
           &nbsp;
-          <%= link_to fa_icon('print'), billdownload_reimbursments_path(request.parameters.merge(format: 'pdf')), target: 'new', class: 'btn btn-default btn-sm', id: 'print' %>
+          <%= link_to fa_icon('print'), billdownload_free_reimbursments_path(request.parameters.merge(format: 'pdf')), target: 'new', class: 'btn btn-default btn-sm', id: 'print' %>
           <% end %>
         </div>
       </div>
@@ -48,39 +48,41 @@
             </tr>
           </thead>
           <tbody>
-            <% @reimbursments.each do |reimbursment| %>
+            <% @free_reimbursments.each do |free_reimbursment| %>
             <tr>
               <td>
                 <strong>
-                  <%= link_to reimbursment.name, reimbursment, id: 'text-info' %>
+                  <%= free_reimbursment.name %>
                 </strong>
               </td>
               <td>
-                <%= reimbursment.transport_type.name %>
+                <% if free_reimbursment.transport_type_id != nil %>
+                  <%= free_reimbursment.transport_type.name %>
+                <% end %>
               </td>
               <td>
-                <%= reimbursment.mission_place.name %>
+                <%= free_reimbursment.mission_place %>
               </td>
               <td>
-                <%= reimbursment.mission_reason.name %>
+                <%= free_reimbursment.mission_reason %>
               </td>
               <td>
-                <%= reimbursment.departure_date.strftime('%d/%m/%Y') %>
+                <%= free_reimbursment.departure_date.strftime('%d/%m/%Y') %>
               </td>
               <td>
-                <%= reimbursment.return_date.strftime('%d/%m/%Y') %>
+                <%= free_reimbursment.return_date.strftime('%d/%m/%Y') %>
               </td>
               <td>
-                <%= link_to fa_icon('pencil'), edit_reimbursment_path(reimbursment), id: 'text-warning' %>
+                <%= link_to fa_icon('pencil'), edit_free_reimbursment_path(free_reimbursment), id: 'text-warning' %>
               </td>
               <td>
-                <%= link_to fa_icon('trash'), reimbursment, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il rimborso corrente?' }, id: 'text-danger' %>
+                <%= link_to fa_icon('trash'), free_reimbursment, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il rimborso corrente?' }, id: 'text-danger' %>
               </td>
             </tr>
             <% end %>
           </tbody>
         </table>
-        <%= will_paginate @reimbursments, renderer: BootstrapPagination::Rails %>
+        <%= will_paginate @free_reimbursments, renderer: BootstrapPagination::Rails %>
       </div>
     </div>
   </div>

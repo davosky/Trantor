@@ -19,4 +19,9 @@ Rails.application.routes.draw do
       get :billdownload
     end
   end
+  resources :free_reimbursments do
+    collection do
+      get :billdownload
+    end
+  end
 end
