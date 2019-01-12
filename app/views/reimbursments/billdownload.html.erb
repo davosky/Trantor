@@ -4,21 +4,17 @@
       <%= fa_icon('credit-card') %>&nbsp;&nbsp;STAMPA RIMBORSI
     </h4>
     <hr>
-    <div class='row'>
-      <div class='col col-md-4'>
+    <div class="col col-md-12">
         <%= search_form_for @q, id: 'search-form', url: billdownload_reimbursments_path do |f| %>
         <div class='field'>
           <%= f.label 'Data Inizio:' %><br>
           <%= f.text_field :departure_date_gteq, class: 'datepicker form-control', id: 'departure' %>
         </div>
-      </div>
-      <div class='col col-md-4'>
         <div class='field'>
           <%= f.label 'Data Fine:' %><br>
           <%= f.text_field :departure_date_lteq, class: 'datepicker form-control', id: 'return' %>
         </div>
-      </div>
-      <div class='col col-md-4'>
+        <br>
         <div class='form-actions'>
           <%= button_tag type: 'submit', class: 'btn btn-default btn-sm', id: 'text-success' do %>
           <%= fa_icon('search') %>
@@ -28,13 +24,10 @@
           <%= link_to fa_icon('print'), billdownload_reimbursments_path(request.parameters.merge(format: 'pdf')), target: 'new', class: 'btn btn-default btn-sm', id: 'print' %>
           <% end %>
         </div>
-      </div>
       <% end %>
-    </div>
     <br>
     <hr>
     <div class='row'>
-      <div class='col col-md-12'>
         <table class='table table-striped table-hover'>
           <thead>
             <tr>
@@ -81,7 +74,6 @@
           </tbody>
         </table>
         <%= will_paginate @reimbursments, renderer: BootstrapPagination::Rails %>
-      </div>
     </div>
   </div>
 </div>
@@ -90,5 +82,17 @@
     $('.datepicker').datepicker({
       language: 'it'
     });
+  });
+
+  $('#search-form').submit(function () {
+    if ($('#departure').val() == "") {
+      alert("Devi selezionare la data di inizio");
+      return false;
+    };
+    if ($('#return').val() == "") {
+      alert("Devi selezionare la data di fine");
+      return false;
+    };
+    return;
   });
 </script>

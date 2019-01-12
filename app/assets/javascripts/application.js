@@ -12,15 +12,10 @@
 //
 //= require jquery3
 //= require jquery_ujs
+//= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require popper
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
-$(document).ready(function () {
-    $('.datepicker').datepicker({
-        language: 'it'
-    });
-});
