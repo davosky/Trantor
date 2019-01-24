@@ -84,6 +84,19 @@
           <% end %>
           <% end %>
         </li>
+        <li>
+          <% if current_user.user_typology == 'CESI' %>
+          <%= link_to billdownloadlist_reimbursments_path do %>
+          <%= fa_icon('print') %>&nbsp;
+          <%= fa_icon('credit-card') %>&nbsp;<%= fa_icon('list') %>&nbsp;<strong>STAMPA RIEPILOGO</strong>
+          <% end %>
+          <% else %>
+          <%= link_to billdownloadlist_free_reimbursments_path do %>
+          <%= fa_icon('print') %>&nbsp;
+          <%= fa_icon('credit-card') %>&nbsp;<%= fa_icon('list') %>&nbsp;<strong>STAMPA RIEPILOGO</strong>
+          <% end %>
+          <% end %>
+        </li>
         <hr>
         <h5 id='text-primary'>
           <%= inline_svg('icon_fuel.svg', size: '20px * 20px', preserve_aspect_ratio: 'xMaxYMax meet') %>

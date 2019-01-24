@@ -20,6 +20,19 @@ class ReimbursmentsController < ApplicationController
       end
   end
 
+  def billdownloadlist
+    @user = current_user
+      @q = Reimbursment.ransack(params[:q])
+      @reimbursments = @q.result(distinct: true).order(departure_date: 'ASC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 50)
+      respond_to do |format|
+        format.html
+        format.json
+        format.pdf { render template: 'reimbursments/pdfbilldownloadlist', pdf: 'pdfbilldownloadlist' }
+      end
+      @totale
+      @totalegenerale
+  end
+
   def new
     @reimbursment = Reimbursment.new
   end

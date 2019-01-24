@@ -1,4 +1,4 @@
-Rails.application.routes.draw do  
+Rails.application.routes.draw do
   root to: 'home#index'
   get 'home/index'
   get 'home/about'
@@ -20,10 +20,16 @@ Rails.application.routes.draw do
     collection do
       get :billdownload
     end
+    collection do
+      get :billdownloadlist
+    end
   end
   resources :free_reimbursments do
     collection do
       get :billdownload
+    end
+    collection do
+      get :billdownloadlist
     end
   end
   resources :fuels do

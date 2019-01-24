@@ -2,97 +2,96 @@
   <% if reimbursment.errors.any? %>
     <div id='error_explanation'>
       <h4 id='text-danger'><%= pluralize(reimbursment.errors.count, 'error') %> Non posso salvare il record corrnte:</h4>
-
       <ul>
-      <% reimbursment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% reimbursment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-<div class='row'>
-  <div class='col col-md-6'>
-    <div class='field'>
-      <%= form.label 'TIPOLOGIA MEZZO:', id:'text-info' %>
-      <%= form.collection_select(:transport_type_id, TransportType.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+  <div class='row'>
+    <div class='col col-md-6'>
+      <div class='field'>
+        <%= form.label 'TIPOLOGIA MEZZO:', id:'text-info' %>
+        <%= form.collection_select(:transport_type_id, TransportType.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      </div>
+      <div class='field'>
+        <%= form.label 'MEZZO:', id:'text-info' %>
+        <%= form.collection_select(:veichle_id, Veichle.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      </div>
+      <div class='field'>
+        <%= form.label 'LUOGO MISSIONE', id:'text-info' %>
+        <%= form.collection_select(:mission_place_id, MissionPlace.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      </div>
+      <div class='field'>
+        <%= form.label 'STRUTTURA', id:'text-info' %>
+        <%= form.collection_select(:mission_structure_id, MissionStructure.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      </div>
     </div>
-    <div class='field'>
-<%= form.label 'MEZZO:', id:'text-info' %>
-      <%= form.collection_select(:veichle_id, Veichle.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
-    </div>
-    <div class='field'>
-<%= form.label 'LUOGO MISSIONE', id:'text-info' %>
-      <%= form.collection_select(:mission_place_id, MissionPlace.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
-    </div>
-    <div class='field'>
-<%= form.label 'STRUTTURA', id:'text-info' %>
-      <%= form.collection_select(:mission_structure_id, MissionStructure.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
-    </div>
-  </div>
-  <div class='col col-md-6'>
-    <div class='field'>
-      <%= form.label 'MOTIVO MISSIONE', id:'text-info' %>
-      <%= form.collection_select(:mission_reason_id, MissionReason.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
-    </div>
-    <div class='field'>
-      <%= form.label 'DATA PARTENZA', id:'text-info' %>
-      <%= form.text_field :departure_date, class: 'datepicker form-control' %>
-    </div>
-    <div class='field'>
-      <%= form.label 'DATA RIENTRO', id:'text-info' %>
-      <%= form.text_field :return_date, class: 'datepicker form-control' %>
-    </div>
-    <div class='field'>
-      <%= form.label 'DATA RICHIESTA MISSIONE', id:'text-info' %>
-      <%= form.text_field :request_date, class: 'datepicker form-control' %>
-    </div>
-    <div class='field'>
-      <%= form.label 'DATA RIMBORSO', id:'text-info' %>
-      <%= form.text_field :reimbursment_date, class: 'datepicker form-control' %>
-    </div>
-  </div>
-</div>
-<hr id='hr-info'>
-<div class='row'>
-  <div class='col col-lg-6'>
-    <div class='field'>
-    <%= form.label 'PERCORSO', id:'text-info' %>
-    <%= form.collection_select(:mission_road_id, MissionRoad.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
-    </div>
-    <div class='field'>
-      <%= form.label 'PARCHEGGIO', id:'text-info' %>
-      <%= form.text_field :parking_cost, class: 'form-control' %>
-    </div>
-    <div class='field'>
-      <%= form.label 'VITTO', id:'text-info' %>
-      <%= form.text_field :food_cost, class: 'form-control' %>
+    <div class='col col-md-6'>
+      <div class='field'>
+        <%= form.label 'MOTIVO MISSIONE', id:'text-info' %>
+        <%= form.collection_select(:mission_reason_id, MissionReason.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      </div>
+      <div class='field'>
+        <%= form.label 'DATA PARTENZA', id:'text-info' %>
+        <%= form.text_field :departure_date, class: 'datepicker form-control' %>
+      </div>
+      <div class='field'>
+        <%= form.label 'DATA RIENTRO', id:'text-info' %>
+        <%= form.text_field :return_date, class: 'datepicker form-control' %>
+      </div>
+      <div class='field'>
+        <%= form.label 'DATA RICHIESTA MISSIONE', id:'text-info' %>
+        <%= form.text_field :request_date, class: 'datepicker form-control' %>
+      </div>
+      <div class='field'>
+        <%= form.label 'DATA RIMBORSO', id:'text-info' %>
+        <%= form.text_field :reimbursment_date, class: 'datepicker form-control' %>
+      </div>
     </div>
   </div>
-  <div class='col col-lg-6'>
-    <div class='field'>
-      <%= form.label 'ALLOGGIO', id:'text-info' %>
-      <%= form.text_field :room_cost, class: 'form-control' %>
+  <hr id='hr-info'>
+  <div class='row'>
+    <div class='col col-lg-6'>
+      <div class='field'>
+        <%= form.label 'PERCORSO', id:'text-info' %>
+        <%= form.collection_select(:mission_road_id, MissionRoad.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+      </div>
+      <div class='field'>
+        <%= form.label 'PARCHEGGIO', id:'text-info' %>
+        <%= form.text_field :parking_cost, class: 'form-control' %>
+      </div>
+      <div class='field'>
+        <%= form.label 'VITTO', id:'text-info' %>
+        <%= form.text_field :food_cost, class: 'form-control' %>
+      </div>
     </div>
-    <div class='field'>
-      <%= form.label 'TICKET', id:'text-info' %>
-      <%= form.text_field :ticket_cost, class: 'form-control' %>
-    </div>
-    <div class='field'>
-      <%= form.label 'VARIE', id:'text-info' %>
-      <%= form.text_field :generic_cost, class: 'form-control' %>
+    <div class='col col-lg-6'>
+      <div class='field'>
+        <%= form.label 'ALLOGGIO', id:'text-info' %>
+        <%= form.text_field :room_cost, class: 'form-control' %>
+      </div>
+      <div class='field'>
+        <%= form.label 'TICKET', id:'text-info' %>
+        <%= form.text_field :ticket_cost, class: 'form-control' %>
+      </div>
+      <div class='field'>
+        <%= form.label 'VARIE', id:'text-info' %>
+        <%= form.text_field :generic_cost, class: 'form-control' %>
+      </div>
     </div>
   </div>
-</div>
-<hr id='hr-info'>
-<div class='row'>
-  <div class='col col-md-6'>
-    <div class='form-group'>
-      <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm') do %>
-      <%= fa_icon('save') %>&nbsp;&nbsp;Salva
-      <% end %>
+  <hr id='hr-info'>
+  <div class='row'>
+    <div class='col col-md-6'>
+      <div class='form-group'>
+        <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm') do %>
+          <%= fa_icon('save') %>&nbsp;&nbsp;Salva
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 <% end %>
 <script>
   $(document).ready(function () {

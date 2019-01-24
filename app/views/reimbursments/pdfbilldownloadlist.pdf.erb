@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'/>
+    <%= stylesheet_link_tag wicked_pdf_asset_base64('pdfbilldownloadlist') %>
+  </head>
+  <body>
+    <h2>
+      <strong>
+        <%= inline_svg('header_reimbursments.svg', size: '36mm * 8mm', preserve_aspect_ratio: 'xMaxYMax meet') %>
+        &nbsp;&nbsp;&nbsp;<%= current_user.institute %>
+      </strong>
+    </h2>
+    <hr>
+    <h3>
+      Riepilogo Spese di: <span id='text-red'><%= current_user.name %></span>
+    </h3>
+    <hr>
+    <table>
+      <thead>
+        <tr>
+          <th class='red'>Tipologia Mezzo</th>
+          <th class='red'>Mezzo</th>
+          <th class='red'>Luogo Missione</th>
+          <th class='red'>Motivo Missione</th>
+          <th class='red'>Struttura</th>
+          <th class='red'>Data Partenza</th>
+          <th class='red'>Data Rientro</th>
+          <th class='red'>Ammontare</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @totale = 0 %>
+        <% @totalegenerale = 0 %>
+        <% @reimbursments.each do |reimbursment| %>
+          <tr>
+            <td><%= reimbursment.transport_type.name %></td>
+            <td><%= reimbursment.veichle.producer %><br><%= reimbursment.veichle.name %><br><%= reimbursment.veichle.licenceplate %></td>
+            <td><%= reimbursment.mission_place.name %></td>
+            <td><%= reimbursment.mission_reason.name %></td>
+            <td><%= reimbursment.mission_structure.name %></td>
+            <td><%= reimbursment.departure_date.strftime('%d/%m/%Y') %></td>
+            <td><%= reimbursment.return_date.strftime('%d/%m/%Y') %></td>
+            <td>
+              <%= number_to_currency(
+              if reimbursment.mission_road_id != nil
+                reimbursment.mission_road.highway_cost + reimbursment.parking_cost + reimbursment.food_cost + reimbursment.room_cost + reimbursment.ticket_cost + reimbursment.generic_cost
+              else
+                reimbursment.parking_cost + reimbursment.food_cost + reimbursment.room_cost + reimbursment.ticket_cost + reimbursment.generic_cost
+              end) %>
+            </td>
+          </tr>
+          <%  if reimbursment.mission_road_id != nil  %>
+          <% @totale = reimbursment.mission_road.highway_cost + reimbursment.parking_cost + reimbursment.food_cost + reimbursment.room_cost + reimbursment.ticket_cost + reimbursment.generic_cost %>
+          <% else %>
+          <% @totale = reimbursment.parking_cost + reimbursment.food_cost + reimbursment.room_cost + reimbursment.ticket_cost + reimbursment.generic_cost %>
+          <% end %>
+          <% @totalegenerale = @totalegenerale + @totale %>
+        <% end %>
+      </tbody>
+    </table>
+    <hr>
+    <div class='total'>
+      <span class='amount' id='text-red'>
+      <h2>Totale:&nbsp;&nbsp;&nbsp;<%= number_to_currency(@totalegenerale) %></h2>
+      </span>
+    </div>
+</body>
+</html>
