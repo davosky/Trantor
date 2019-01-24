@@ -20,7 +20,26 @@
       </thead>
       <tbody>
         <% @service_stations.each do |service_station| %>
-
+        <tr>
+          <td>
+            <%= service_station.position %>
+          </td>
+          <td>
+            <%= link_to service_station.name, service_station, id: 'text-info' %>
+          </td>
+          <td>
+            <%= service_station.city %>
+          </td>
+          <td>
+            <%= service_station.vat_number %>
+          </td>
+          <td>
+            <%= link_to fa_icon('pencil'), edit_service_station_path(service_station), id: 'text-warning' %>
+          </td>
+          <td>
+            <%= link_to fa_icon('trash'), service_station, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il Gestore corrente?' }, id: 'text-danger' %>
+          </td>
+        </tr>
         <% end %>
       </tbody>
     </table>
