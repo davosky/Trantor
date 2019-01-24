@@ -13,6 +13,6 @@ class Fuel < ApplicationRecord
   validates :place, presence: true
   validates :service_station_id, presence: true
   validates :payment_typology_id, presence: true
-  validates :amount, presence: true
+  validates :amount, presence: true, numericality: { greater_than: 0 }
   validates :km, presence: true
 end

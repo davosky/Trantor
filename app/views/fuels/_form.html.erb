@@ -1,8 +1,8 @@
 <%= form_with(model: fuel, local: true) do |form| %>
 <% if fuel.errors.any? %>
   <div id='error_explanation'>
-    <h2><%= pluralize(fuel.errors.count, 'error') %>
-      prohibited this fuel from being saved:</h2>
+    <h4 id='text-danger'><%= pluralize(fuel.errors.count, 'error') %>
+      Non posso salvare il record corrente:</h4 id='text-primary'>
     <ul>
       <% fuel.errors.full_messages.each do |message| %>
         <li><%= message %></li>

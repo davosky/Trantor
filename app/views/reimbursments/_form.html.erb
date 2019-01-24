@@ -1,7 +1,7 @@
 <%= form_with(model: reimbursment, local: true) do |form| %>
   <% if reimbursment.errors.any? %>
     <div id='error_explanation'>
-      <h2><%= pluralize(reimbursment.errors.count, 'error') %> non posso salvare il record corrnte:</h2>
+      <h4 id='text-danger'><%= pluralize(reimbursment.errors.count, 'error') %> Non posso salvare il record corrnte:</h4>
 
       <ul>
       <% reimbursment.errors.full_messages.each do |message| %>

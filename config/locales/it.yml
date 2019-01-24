@@ -1,6 +1,73 @@
 ---
 it:
   activerecord:
+    attributes:
+      fuel:
+        name: Numero
+        date: Data
+        place: Luogo
+        service_station_id: Stazione Servizio
+        service_station: Stazione di Servizio
+        payment_typology_id: Tipologia Pagamento
+        payment_typology: Tipologia Pagamento
+        km: Kilometraggio
+        amount: Ammontare
+      free_reimbursment:
+        name: Numero
+        transport_type_id: Tipologia Trasporto
+        transport_type: Tipologia trasporto
+        veichle_id: Mezzo
+        veichle: Mezzo
+        mission_place: Luogo Missione
+        mission_structure: Struttura
+        mission_reason: Motivo Missione
+        departure_date: Data Partenza
+        return_date: Data Rientro
+        request_date: Data Richiesta
+        reimbursment_date: Data Rimborso
+        mission_road: Percorso
+        mission_road_km: Km Percorso
+        mission_road_hw: Costo Autostrada
+        parking_cost: Parcheggio
+        food_cost: Vitto
+        room_cost: Alloggio
+        ticket_cost: Ticket
+        generic_cost: Varie
+        costkm: Costo al Chilometro
+        secretary: Segretario
+        institute: Istituto
+        address: Indirizzo
+        user_id: Utente
+      reimbursment:
+        name: Numero
+        transport_type_id: Tipologia Trasporto
+        transport_type: Tipologia trasporto
+        veichle_id: Mezzo
+        veichle: Mezzo
+        mission_place_id: Luogo Missione
+        mission_place: Luogo Missione
+        mission_structure_id: Struttura
+        mission_structure: Struttura
+        mission_reason_id: Motivo Missione
+        mission_reason: Motivo Missione
+        departure_date: Data Partenza
+        return_date: Data Rientro
+        request_date: Data Richiesta
+        reimbursment_date: Data Rimborso
+        mission_road_id: Percorso
+        mission_road: Percorso
+        mission_road_km: Km Percorso
+        mission_road_hw: Costo Autostrada
+        parking_cost: Parcheggio
+        food_cost: Vitto
+        room_cost: Alloggio
+        ticket_cost: Ticket
+        generic_cost: Varie
+        costkm: Costo al Chilometro
+        secretary: Segretario
+        institute: Istituto
+        address: Indirizzo
+        user_id: Utente
     errors:
       messages:
         record_invalid: 'Validazione fallita: %{errors}'
