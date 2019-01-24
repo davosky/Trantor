@@ -56,14 +56,11 @@ it:
         reimbursment_date: Data Rimborso
         mission_road_id: Percorso
         mission_road: Percorso
-        mission_road_km: Km Percorso
-        mission_road_hw: Costo Autostrada
         parking_cost: Parcheggio
         food_cost: Vitto
         room_cost: Alloggio
         ticket_cost: Ticket
         generic_cost: Varie
-        costkm: Costo al Chilometro
         secretary: Segretario
         institute: Istituto
         address: Indirizzo
