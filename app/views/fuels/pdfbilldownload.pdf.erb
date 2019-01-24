@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'/>
+    <%= stylesheet_link_tag wicked_pdf_asset_base64('pdfbilldownloadfuel') %>
+  </head>
+  <body>
+    <div id='page'>
+      <div id='header'>
+        <div id='logo'>
+          <h2>
+            <strong>
+              <%= inline_svg('header_fuels.svg', size: '36mm * 8mm', preserve_aspect_ratio: 'xMaxYMax meet') %>
+              &nbsp;&nbsp;&nbsp;<%= current_user.institute %>
+            </strong>
+          </h2>
+        </div>
+        <hr class="red">
+        <br>
+        <h2>
+          <%= inline_svg('icon_fuel_black.svg', size: '24px * 24px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+          &nbsp;
+          SCHEDA CARBURANTE
+          </h2>
+          &nbsp;<strong><%= current_user.name %></strong>
+        <hr class="grey">
+          <table>
+            <thead>
+              <tr>
+                <td class="redtext">Ammontare:</td>
+                <td class="redtext">Data:</td>
+                <td class="redtext">Luogo:</td>
+                <td class="redtext">Stazione:</td>
+                <td class="redtext">Km:</td>
+                <td class="redtext">N°:</td>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Inizializzo le variabili -->
+              <% @totale = 0 %>
+              <% @totalegenerale = 0 %>
+
+              <% @fuels.each do |fuel| %>
+              <tr>
+                <td class="left"><%= number_to_currency(fuel.amount) %></td>
+                <td><%= fuel.date.strftime('%d/%m/%Y') %></td>
+                <td><%= fuel.place %></td>
+                <td><%= fuel.service_station.name %></td>
+                <td><%= fuel.km %>&nbsp;Km</td>
+                <td><%= fuel.name %></td>
+              </tr>
+              <tr></tr>
+              <% @totale = fuel.amount%>
+              <% @totalegenerale = @totalegenerale + @totale %>
+              <% end %>
+            </tbody>
+          </table>
+          <hr class="grey">
+          <h3><%= number_to_currency(@totalegenerale) %>&nbsp;&nbsp;&nbsp;Totale</h3>
+      </body>
+</html>

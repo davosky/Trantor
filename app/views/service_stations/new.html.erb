@@ -1,0 +1,12 @@
+<div class='panel panel-default'>
+    <div class='panel-body'>
+        <h4>
+            <i class="fas fa-gas-pump"></i>&nbsp;&nbsp;NUOVO GESTORE
+            <span class='pull-right'>
+                <%= link_to fa_icon('arrow-left'), service_stations_path, class: 'btn btn-default btn-sm' %>
+            </span>
+        </h4>
+        <hr>
+        <%= render 'form', service_station: @service_station %>
+    </div>
+</div>

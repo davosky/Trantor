@@ -1,0 +1,33 @@
+<div class='row'>
+  <div class='col col-md-4'>
+    <%= form_with(model: payment_typology, local: true) do |form| %>
+    <% if payment_typology.errors.any? %>
+    <div id='error_explanation'>
+      <h2>
+        <%= pluralize(payment_typology.errors.count, 'error') %> non posso salvare il record corrente:</h2>
+      <ul>
+        <% payment_typology.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class='field'>
+      <%= form.label 'TIPOLOGIA PAGAMENTO' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label 'POSIZIONE' %>
+      <%= form.number_field :position, class: 'form-control' %>
+    </div>
+    <br>
+    <div class='form-group'>
+      <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm') do %>
+      <%= fa_icon('save') %>&nbsp;Salva
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

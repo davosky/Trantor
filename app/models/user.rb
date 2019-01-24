@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_many :mission_roads
   has_many :mission_reasons
   has_many :mission_places
+  has_many :service_stations
+  has_many :payment_typologies
+  has_many :fuels
 
   validates :name, presence: true
   validates :institute, presence: true

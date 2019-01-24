@@ -1,0 +1,57 @@
+<div class='row'>
+  <div class='col col-md-9'>
+    <%= form_with(model: service_station, local: true, id: 'formservice_station') do |form| %>
+    <% if service_station.errors.any? %>
+    <div id='error_explanation'>
+      <h2>
+        <%= pluralize(service_station.errors.count, 'error') %> non posso salvare il record corrente:</h2>
+      <ul>
+        <% service_station.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+    <div class='field'>
+      <%= form.label 'POSIZIONE:' %>
+      <%= form.number_field :position, class: 'form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label 'RAGIONE SOCIALE:' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label 'INDIRIZZO:' %>
+      <%= form.text_field :address, class: 'form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label 'CAP:' %>
+      <%= form.text_field :zip, class: 'form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label 'CITTà:' %>
+      <%= form.text_field :city, class: 'form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label 'PROVINCIA:' %>
+      <%= form.text_field :province, class: 'form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label 'NAZIONE:' %>
+      <%= form.text_field :country, class: 'form-control' %>
+    </div>
+    <div class='field'>
+      <%= form.label 'PARTITA IVA:' %>
+      <%= form.text_field :vat_number, class: 'form-control' %>
+    </div>
+    <br>
+    <div class='form-group'>
+      <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm') do %>
+      <%= fa_icon('save') %>&nbsp;Salva
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

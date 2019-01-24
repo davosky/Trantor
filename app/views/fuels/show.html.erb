@@ -1,0 +1,46 @@
+<div class='panel panel-default'>
+  <div class='panel-body'>
+    <h4>
+<i class="fas fa-gas-pump"></i>&nbsp;&nbsp;SCHEDA CARBURANTE
+      <span class='pull-right'>
+        <%= link_to fa_icon('arrow-left'), fuels_path, class: 'btn btn-default btn-sm' %>
+        &nbsp;
+        <%= link_to fa_icon('pencil'), edit_fuel_path(@fuel), class: 'btn btn-default btn-sm', id: 'text-warning' %>
+      </span>
+    </h4>
+    <hr>
+    <div class='row'>
+      <div class='col col-md-6 col-md-offset-3'>
+        <dl class='dl-horizontal'>
+          <dt>Numero:</dt>
+          <dd>
+            <%= @fuel.name %>
+          </dd>
+          <dt>Data:</dt>
+          <dd>
+            <%= @fuel.date.strftime('%d/%m/%Y') %>
+          </dd>
+          <dt>Luogo:</dt>
+          <dd>
+            <%= @fuel.place %>
+          </dd>
+          <dt>Stazione Servizio:</dt>
+          <dd>
+            <%= @fuel.service_station.name %>
+          </dd>
+          <dt>Kilometraggio:</dt>
+          <dd>
+            <%= @fuel.km %>
+          </dd>
+          <dt>Tipologia Pagamento:</dt>
+          <dd>
+            <%= @fuel.payment_typology.name %>
+          </dd>
+          <dt>Ammontare:</dt>
+          <dd>
+            <%= number_to_currency(@fuel.amount) %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+</div>

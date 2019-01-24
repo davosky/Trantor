@@ -1,0 +1,50 @@
+<%= form_with(model: fuel, local: true) do |form| %>
+<% if fuel.errors.any? %>
+  <div id='error_explanation'>
+    <h2><%= pluralize(fuel.errors.count, 'error') %>
+      prohibited this fuel from being saved:</h2>
+    <ul>
+      <% fuel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class='col col-md-6 col-md-offset-3'>
+  <div class='field'>
+    <%= form.label 'DATA:', id:'text-info' %>
+    <%= form.text_field :date, class: 'datepicker form-control' %>
+  </div>
+  <div class='field'>
+    <%= form.label 'LUOGO:', id:'text-info' %>
+    <%= form.text_field :place, class: 'form-control' %>
+  </div>
+  <div class='field'>
+    <%= form.label 'STAZIONE DI SERVIZIO:', id:'text-info' %>
+    <%= form.collection_select(:service_station_id, ServiceStation.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+  </div>
+  <div class='field'>
+    <%= form.label 'KILOMETRAGGIO:', id:'text-info' %>
+    <%= form.number_field :km, class: 'form-control' %>
+  </div>
+  <div class='field'>
+    <%= form.label 'TIPOLOGIA PAGAMENTO:', id:'text-info' %>
+    <%= form.collection_select(:payment_typology_id, PaymentTypology.where(user_id: current_user.id).order('position ASC'), :id, :name, {:include_blank => true}, {:class => 'form-control'}) %>
+  </div>
+  <div class='field'>
+    <%= form.label 'AMMONTARE:', id:'text-info' %>
+    <%= form.text_field :amount, class: 'form-control' %>
+  </div>
+  <br>
+  <div class='form-group'>
+    <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm') do %>
+    <%= fa_icon('save') %>&nbsp;&nbsp;Salva
+    <% end %>
+  </div>
+</div>
+<% end %>
+<script>
+$(document).ready(function () {
+  $('.datepicker').datepicker({language: 'it'});
+});
+</script>

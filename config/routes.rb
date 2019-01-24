@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do  
   root to: 'home#index'
   get 'home/index'
   get 'home/about'
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :mission_places
   resources :veichles
   resources :transport_types
+  resources :payment_typologies
+  resources :service_stations
 
   resources :reimbursments do
     collection do
@@ -20,6 +22,11 @@ Rails.application.routes.draw do
     end
   end
   resources :free_reimbursments do
+    collection do
+      get :billdownload
+    end
+  end
+  resources :fuels do
     collection do
       get :billdownload
     end

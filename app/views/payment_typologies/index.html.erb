@@ -1,0 +1,40 @@
+<div class='panel panel-default'>
+  <div class='panel-body'>
+    <h4>
+      <i class="far fa-money-bill-alt"></i>&nbsp;&nbsp;TIPOLOGIE PAGAMENTO
+      <span class='pull-right'>
+        <%= link_to fa_icon('pencil'), new_payment_typology_path, class: 'btn btn-default btn-sm', id: 'text-success' %>
+      </span>
+    </h4>
+    <hr>
+    <table class='table table-striped table-hover'>
+      <thead>
+        <tr>
+          <th>POSIZIONE:</th>
+          <th>TIPOLOGIA PAGAMENTO:</th>
+          <th colspan='2'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @payment_typologies.each do |payment_typology| %>
+        <tr>
+          <td>
+            <%= payment_typology.position %>
+          </td>
+          <td>
+            <%= link_to payment_typology.name, payment_typology, id: 'text-info' %>
+          </td>
+          <td>
+            <%= link_to fa_icon('pencil'), edit_payment_typology_path(payment_typology), id: 'text-warning' %>
+          </td>
+          <td>
+            <%= link_to fa_icon('trash'), payment_typology, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare la Tipologia Pagamento corrente?' }, id: 'text-danger' %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+    <%= will_paginate @payment_typologys, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>
