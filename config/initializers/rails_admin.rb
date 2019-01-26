@@ -289,6 +289,177 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model 'FreeReimbursment' do
+    visible true
+    label 'Rimborso Funzionari'
+    label_plural 'Rimborsi Funzionari'
+    configure :name do
+      label 'Numero:'
+    end
+    configure :transport_type do
+      label 'Tipologia Trasporto:'
+    end
+    configure :veichle do
+      label 'Mezzo:'
+    end
+    configure :mission_place do
+      label 'Luogo Missione:'
+    end
+    configure :mission_structure do
+      label 'Struttura Missione:'
+    end
+    configure :mission_reason do
+      label 'Motivo Missione:'
+    end
+    configure :departure_date do
+      label 'Data Partenza:'
+    end
+    configure :return_date do
+      label 'Data Rientro:'
+    end
+    configure :request_date do
+      label 'Data Richiesta:'
+    end
+    configure :reimbursment_date do
+      label 'Data Rimborso:'
+    end
+    configure :mission_road do
+      label 'Percorso Missione:'
+    end
+    configure :parking_cost do
+      label 'Costo Parcheggio:'
+    end
+    configure :food_cost do
+      label 'Costo Vitto:'
+    end
+    configure :room_cost do
+      label 'Costo Alloggio:'
+    end
+    configure :ticket_cost do
+      label 'Costo Ticket:'
+    end
+    configure :generic_cost do
+      label 'Costi Vari:'
+    end
+    configure :costkm do
+      visible false
+    end
+    configure :institute do
+      visible false
+    end
+    configure :address do
+      visible false
+    end
+    configure :secretary do
+      visible false
+    end
+    configure :user do
+      visible false
+    end
+    configure :created_at do
+      label 'Creato il:'
+    end
+    configure :updated_at do
+      label 'Aggiornato il:'
+    end
+  end
+
+  config.model 'PaymentTypology' do
+    visible true
+    label 'Tipologia Pagamento'
+    label_plural 'Tipologie Pagamento'
+    configure :name do
+      label 'Tipologia:'
+    end
+    configure :position do
+      label 'Posizione:'
+    end
+    configure :user do
+      visible false
+    end
+    configure :created_at do
+      label 'Creato il:'
+    end
+    configure :updated_at do
+      label 'Aggiornato il:'
+    end
+  end
+
+  config.model 'ServiceStation' do
+    visible true
+    label 'Stazione di Servizio'
+    label_plural 'Stazioni di Servizio'
+    configure :name do
+      label 'Ragione Sociale:'
+    end
+    configure :position do
+      label 'Posizione:'
+    end
+    configure :address do
+      label 'Indirizzo:'
+    end
+    configure :zip do
+      label 'Cap:'
+    end
+    configure :city do
+      label 'Comune:'
+    end
+    configure :province do
+      label 'Provincia:'
+    end
+    configure :country do
+      label 'Nazione:'
+    end
+    configure :vat_number do
+      label 'Partita IVA:'
+    end
+    configure :user do
+      visible false
+    end
+    configure :created_at do
+      label 'Creato il:'
+    end
+    configure :updated_at do
+      label 'Aggiornato il:'
+    end
+  end
+
+  config.model 'Fuel' do
+    visible true
+    label 'Scheda Carburante'
+    label_plural 'Schede Carburante'
+    configure :name do
+      label 'Numero:'
+    end
+    configure :place do
+      label 'Luogo:'
+    end
+    configure :date do
+      label 'Data:'
+    end
+    configure :service_station do
+      label 'Gestore:'
+    end
+    configure :payment_typology do
+      label 'Tipologia Pagamento:'
+    end
+    configure :amount do
+      label 'Ammontare:'
+    end
+    configure :km do
+      label 'Chilometraggio:'
+    end
+    configure :user do
+      visible false
+    end
+    configure :created_at do
+      label 'Creato il:'
+    end
+    configure :updated_at do
+      label 'Aggiornato il:'
+    end
+  end
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
