@@ -103,6 +103,35 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.integer "position"
   end
 
+  create_table "reimbursment_frees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "name"
+    t.integer "transport_type_id"
+    t.integer "veichle_id"
+    t.string "mission_place"
+    t.string "mission_structure"
+    t.string "mission_reason"
+    t.date "departure_date"
+    t.date "return_date"
+    t.date "request_date"
+    t.date "reimbursment_date"
+    t.string "mission_road"
+    t.decimal "mission_road_km", precision: 8, scale: 2, default: "0.0"
+    t.decimal "mission_road_hw", precision: 8, scale: 2, default: "0.0"
+    t.decimal "parking_cost", precision: 8, scale: 2, default: "0.0"
+    t.decimal "food_cost", precision: 8, scale: 2, default: "0.0"
+    t.decimal "room_cost", precision: 8, scale: 2, default: "0.0"
+    t.decimal "ticket_cost", precision: 8, scale: 2, default: "0.0"
+    t.decimal "generic_cost", precision: 8, scale: 2, default: "0.0"
+    t.decimal "costkm", precision: 8, scale: 2, default: "0.0"
+    t.string "secretary"
+    t.string "institute"
+    t.string "address"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_reimbursment_frees_on_user_id"
+  end
+
   create_table "reimbursments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "name"
     t.bigint "transport_type_id"
@@ -127,12 +156,6 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "mission_place_free"
-    t.string "mission_structure_free"
-    t.string "mission_reason_free"
-    t.string "mission_path_free"
-    t.decimal "mission_path_km", precision: 8, scale: 2, default: "0.0"
-    t.decimal "highway_cost_free", precision: 8, scale: 2, default: "0.0"
     t.index ["mission_place_id"], name: "index_reimbursments_on_mission_place_id"
     t.index ["mission_reason_id"], name: "index_reimbursments_on_mission_reason_id"
     t.index ["mission_road_id"], name: "index_reimbursments_on_mission_road_id"
@@ -209,6 +232,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
   add_foreign_key "mission_reasons", "users"
   add_foreign_key "mission_roads", "users"
   add_foreign_key "mission_structures", "users"
+  add_foreign_key "reimbursment_frees", "users"
   add_foreign_key "reimbursments", "mission_places"
   add_foreign_key "reimbursments", "mission_reasons"
   add_foreign_key "reimbursments", "mission_roads"
