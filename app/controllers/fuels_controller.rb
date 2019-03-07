@@ -2,10 +2,9 @@ class FuelsController < ApplicationController
   before_action :set_fuel, only: [:show, :edit, :update, :destroy]
 
   def index
-    @fuels = Fuel.all
     @user = current_user
       @q = Fuel.ransack(params[:q])
-      @fuels = @q.result(distinct: true).order(date: 'ASC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 50)
+      @fuels = @q.result(distinct: true).order(date: 'DESC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 50)
       respond_to do |format|
         format.html
         format.json
