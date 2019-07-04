@@ -3,7 +3,7 @@ class MissionReasonsController < ApplicationController
 
   def index
     @q = MissionReason.ransack(params[:q])
-    @mission_reasons = @q.result(distinct: true).order(position: 'ASC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
+    @mission_reasons = @q.result(distinct: true).order(position: 'ASC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 100)
   end
 
   def show

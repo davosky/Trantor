@@ -3,7 +3,7 @@ class VeichlesController < ApplicationController
 
   def index
     @q = Veichle.ransack(params[:q])
-    @veichles = @q.result(distinct: true).order(position: 'ASC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
+    @veichles = @q.result(distinct: true).order(position: 'ASC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 100)
   end
 
   def show

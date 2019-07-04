@@ -3,7 +3,7 @@ class MissionPlacesController < ApplicationController
 
   def index
     @q = MissionPlace.ransack(params[:q])
-    @mission_places = @q.result(distinct: true).order(position: 'ASC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
+    @mission_places = @q.result(distinct: true).order(position: 'ASC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 100)
   end
 
   def show

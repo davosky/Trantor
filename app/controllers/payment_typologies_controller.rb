@@ -3,7 +3,7 @@ class PaymentTypologiesController < ApplicationController
 
   def index
     @payment_typologies = PaymentTypology.order(position: 'ASC').where(user_id: current_user.id)
-                                                                .paginate(page: params[:page], per_page: 10)
+                                                                .paginate(page: params[:page], per_page: 100)
   end
 
   def show

@@ -3,7 +3,7 @@ class TransportTypesController < ApplicationController
 
   def index
     @q = TransportType.ransack(params[:q])
-    @transport_types = @q.result(distinct: true).order(position: 'ASC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
+    @transport_types = @q.result(distinct: true).order(position: 'ASC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 100)
   end
 
   def show
