@@ -56,6 +56,15 @@ $web-font-path_one: "https://fonts.googleapis.com/css?family=Open+Sans+Condensed
   padding: 0;
 }
 
+#hr-primary {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $brand-primary;
+  margin: 1em 0;
+  padding: 0;
+}
+
 #condensed {
   font-family: 'Open Sans Condensed', sans-serif;
 }

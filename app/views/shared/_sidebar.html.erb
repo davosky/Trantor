@@ -5,15 +5,18 @@
         <li>
           <%= link_to inline_svg('sidebar_logo.svg', size: '128px * 96px', preserve_aspect_ratio: 'xMaxYMax meet'), root_path %>
         </li>
+        <li>
+          <hr id="hr-primary">
+        </li>
         <hr>
         <h5 id='text-primary'>
           <%= inline_svg('icon_reimbursment.svg', size: '20px * 20px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-          &nbsp;RIMBORSI
+          &nbsp;<strong>RIMBORSI</strong>
         </h5>
         <li class='dropdown'>
-          <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>
-            <%= fa_icon('cog') %>&nbsp;<strong>MODULI</strong>
-            <span class='caret'></span></a>
+          <a href='#' class='dropdown-toggle, text-info' data-toggle='dropdown' role='button' aria-expanded='false'>
+            <%= fa_icon('cog')%>&nbsp;<strong>MODULI</strong>
+            <span class='caret'></span>
           </a>
           <ul class='dropdown-menu' role='menu'>
             <% if current_user.user_typology == 'CESI' %>
@@ -97,16 +100,19 @@
           <% end %>
           <% end %>
         </li>
-        <hr>
+        <li>
+          <br>
+          <hr id="hr-primary">
+          <br>
+        </li>
         <h5 id='text-primary'>
           <%= inline_svg('icon_fuel.svg', size: '20px * 20px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-          &nbsp;CARBURANTE
+          &nbsp;<strong>CARBURANTE</strong>
         </h5>
         <li class='dropdown'>
-          <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>
+          <a href='#' class='dropdown-toggle, text-info' data-toggle='dropdown' role='button' aria-expanded='false'>
             <%= fa_icon('cog') %>&nbsp;<strong>MODULI</strong>
             <span class='caret'></span></a>
-          </a>
           <ul class='dropdown-menu' role='menu'>
             <li>
               <%= link_to service_stations_path do %>
