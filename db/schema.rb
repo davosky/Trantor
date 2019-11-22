@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_24_093229) do
+ActiveRecord::Schema.define(version: 2019_11_22_164348) do
 
-  create_table "free_reimbursments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "free_reimbursments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "name"
     t.integer "transport_type_id"
     t.integer "veichle_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.index ["user_id"], name: "index_free_reimbursments_on_user_id"
   end
 
-  create_table "fuels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "fuels", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "name"
     t.date "date"
     t.string "place"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.index ["user_id"], name: "index_fuels_on_user_id"
   end
 
-  create_table "mission_places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "mission_places", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.integer "position"
     t.bigint "user_id"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.index ["user_id"], name: "index_mission_places_on_user_id"
   end
 
-  create_table "mission_reasons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "mission_reasons", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.integer "position"
     t.bigint "user_id"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.index ["user_id"], name: "index_mission_reasons_on_user_id"
   end
 
-  create_table "mission_roads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "mission_roads", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.decimal "km", precision: 8, scale: 2, default: "0.0"
     t.decimal "highway_cost", precision: 8, scale: 2, default: "0.0"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.index ["user_id"], name: "index_mission_roads_on_user_id"
   end
 
-  create_table "mission_structures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "mission_structures", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.integer "position"
     t.bigint "user_id"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.index ["user_id"], name: "index_mission_structures_on_user_id"
   end
 
-  create_table "payment_typologies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "payment_typologies", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -103,36 +103,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.integer "position"
   end
 
-  create_table "reimbursment_frees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "name"
-    t.integer "transport_type_id"
-    t.integer "veichle_id"
-    t.string "mission_place"
-    t.string "mission_structure"
-    t.string "mission_reason"
-    t.date "departure_date"
-    t.date "return_date"
-    t.date "request_date"
-    t.date "reimbursment_date"
-    t.string "mission_road"
-    t.decimal "mission_road_km", precision: 8, scale: 2, default: "0.0"
-    t.decimal "mission_road_hw", precision: 8, scale: 2, default: "0.0"
-    t.decimal "parking_cost", precision: 8, scale: 2, default: "0.0"
-    t.decimal "food_cost", precision: 8, scale: 2, default: "0.0"
-    t.decimal "room_cost", precision: 8, scale: 2, default: "0.0"
-    t.decimal "ticket_cost", precision: 8, scale: 2, default: "0.0"
-    t.decimal "generic_cost", precision: 8, scale: 2, default: "0.0"
-    t.decimal "costkm", precision: 8, scale: 2, default: "0.0"
-    t.string "secretary"
-    t.string "institute"
-    t.string "address"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reimbursment_frees_on_user_id"
-  end
-
-  create_table "reimbursments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "reimbursments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "name"
     t.bigint "transport_type_id"
     t.bigint "veichle_id"
@@ -165,7 +136,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.index ["veichle_id"], name: "index_reimbursments_on_veichle_id"
   end
 
-  create_table "service_stations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "service_stations", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.string "zip"
@@ -179,7 +150,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.integer "position"
   end
 
-  create_table "transport_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "transport_types", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.integer "position"
     t.datetime "created_at", null: false
@@ -188,7 +159,7 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.index ["user_id"], name: "index_transport_types_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.boolean "admin"
     t.boolean "manager"
     t.boolean "regular"
@@ -209,11 +180,12 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
     t.datetime "updated_at", null: false
     t.string "user_typology"
     t.decimal "cost_per_km", precision: 8, scale: 2, default: "0.0"
+    t.string "signature"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "veichles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "veichles", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.string "producer"
     t.string "licenceplate"
@@ -232,7 +204,6 @@ ActiveRecord::Schema.define(version: 2019_01_24_093229) do
   add_foreign_key "mission_reasons", "users"
   add_foreign_key "mission_roads", "users"
   add_foreign_key "mission_structures", "users"
-  add_foreign_key "reimbursment_frees", "users"
   add_foreign_key "reimbursments", "mission_places"
   add_foreign_key "reimbursments", "mission_reasons"
   add_foreign_key "reimbursments", "mission_roads"

@@ -96,16 +96,16 @@
               <tr><td>Vitto:</td><td><strong><%= number_to_currency( if reimbursment.food_cost > 0
               reimbursment.food_cost end ) %>
               </strong></td></tr>
-              <tr><td>Alloggio::</td><td><strong><%= number_to_currency( if reimbursment.room_cost > 0 
+              <tr><td>Alloggio::</td><td><strong><%= number_to_currency( if reimbursment.room_cost > 0
               reimbursment.room_cost end ) %>
               </strong></td></tr>
-              <tr><td>Ticket:</td><td><strong><%= number_to_currency(if reimbursment.ticket_cost > 0 
+              <tr><td>Ticket:</td><td><strong><%= number_to_currency(if reimbursment.ticket_cost > 0
               reimbursment.ticket_cost end ) %>
               </strong></td></tr>
-              <tr><td>varie:</td><td><strong><%= number_to_currency( if reimbursment.generic_cost > 0 
+              <tr><td>varie:</td><td><strong><%= number_to_currency( if reimbursment.generic_cost > 0
               reimbursment.generic_cost end ) %>
               </strong></td></tr>
-              <tr><td>Parcheggio:</td><td><strong><%= number_to_currency( if reimbursment.parking_cost > 0 
+              <tr><td>Parcheggio:</td><td><strong><%= number_to_currency( if reimbursment.parking_cost > 0
               reimbursment.parking_cost end ) %>
               </strong></td></tr>
               <tr>
@@ -144,7 +144,13 @@
               <tr></tr>
               <tr></tr>
               <tr>
-                <td>------------------------------------------</td>
+                <td>
+                  <%  if current_user.signature.url.present? %>
+                    <%= wicked_pdf_image_tag(reimbursment.user.signature.url, :size => '140x54', :crop => :fill) %>
+                  <% end %>
+                  <br>
+                  ------------------------------------------
+                </td>
                 <td><%= reimbursment.reimbursment_date.strftime('%d/%m/%Y') %></td>
               </tr>
             </tbody>

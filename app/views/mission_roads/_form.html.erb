@@ -1,5 +1,5 @@
 <div class='row'>
-  <div class='col col-md-4'>
+  <div class='col col-md-12'>
     <%= form_with(model: mission_road, local: true) do |form| %>
     <% if mission_road.errors.any? %>
     <div id='error_explanation'>
@@ -32,9 +32,11 @@
     </div>
     <br>
     <div class='form-group'>
-      <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm') do %>
-      <%= fa_icon('save') %>&nbsp;Salva
-      <% end %>
+      <span class='pull-right'>
+        <%= button_tag(type: 'submit', class: 'btn btn-success btn-sm') do %>
+        <%= fa_icon('save') %>&nbsp;Salva
+        <% end %>
+      </span>
     </div>
     <% end %>
   </div>
