@@ -4,7 +4,7 @@ class FuelsController < ApplicationController
   def index
     @user = current_user
       @q = Fuel.ransack(params[:q])
-      @fuels = @q.result(distinct: true).order(date: 'DESC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 150)
+      @fuels = @q.result(distinct: true).order(date: 'DESC').where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
       respond_to do |format|
         format.html
         format.json

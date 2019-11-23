@@ -1,11 +1,12 @@
 <div class='panel panel-default'>
   <div class='panel-body'>
     <h4>
-      <%= fa_icon('credit-card') %>&nbsp;&nbsp;RIMBORSO N°&nbsp;<%= @reimbursment.name %>&nbsp;DEL:&nbsp;<%= @reimbursment.departure_date.strftime('%d/%m/%Y') %>
+      <%= inline_svg('reimbursment_list_icon.svg', size: '50px * 30px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+      &nbsp;&nbsp;RIMBORSO N°&nbsp;<%= @reimbursment.name %>&nbsp;DEL:&nbsp;<%= @reimbursment.departure_date.strftime('%d/%m/%Y') %>
       <span class='pull-right'>
-        <%= link_to fa_icon('arrow-left'), reimbursments_path, class: 'btn btn-default btn-sm' %>
+        <%= link_to fa_icon('arrow-left'), reimbursments_path, class: 'btn btn-default btn-sm', title: 'RITORNA alla lista', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
         &nbsp;
-        <%= link_to fa_icon('pencil'), edit_reimbursment_path(@reimbursment), class: 'btn btn-default btn-sm', id: 'text-warning' %>
+        <%= link_to fa_icon('pencil'), edit_reimbursment_path(@reimbursment), class: 'btn btn-default btn-sm', id: 'text-warning', title: 'MODIFICA il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
       </span>
     </h4>
     <hr>

@@ -24,7 +24,7 @@
         <tr>
           <td>
             <strong>
-              <%= link_to reimbursment.name, reimbursment, id: 'text-info' %>
+              <%= link_to reimbursment.name, reimbursment, id: 'text-info', title: 'DETTAGIO del record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
             </strong>
           </td>
           <td>
@@ -43,10 +43,10 @@
             <%= reimbursment.return_date.strftime('%d/%m/%Y') %>
           </td>
           <td>
-            <%= link_to fa_icon('pencil'), edit_reimbursment_path(reimbursment), id: 'text-warning' %>
+            <%= link_to fa_icon('pencil'), edit_reimbursment_path(reimbursment), id: 'text-warning', title: 'MODIFICA il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
           </td>
           <td>
-            <%= link_to fa_icon('trash'), reimbursment, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il rimborso corrente?' }, id: 'text-danger' %>
+            <%= link_to fa_icon('trash'), reimbursment, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il rimborso corrente?' }, id: 'text-danger', title: 'ELIMINA il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
           </td>
         </tr>
         <% end %>

@@ -21,7 +21,7 @@
         <tr>
           <td>
             <strong>
-              <%= link_to fuel.name, fuel, id: 'text-info' %>
+              <%= link_to fuel.name, fuel, id: 'text-info', title: 'DETTAGIO del record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
             </strong>
           </td>
           <td>
@@ -34,10 +34,10 @@
             <%= fuel.service_station.name %>
           </td>
           <td>
-            <%= link_to fa_icon('pencil'), edit_fuel_path(fuel), id: 'text-warning' %>
+            <%= link_to fa_icon('pencil'), edit_fuel_path(fuel), id: 'text-warning', id: 'text-warning', title: 'MODIFICA il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
           </td>
           <td>
-            <%= link_to fa_icon('trash'), fuel, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare la scheda corrente?' }, id: 'text-danger' %>
+            <%= link_to fa_icon('trash'), fuel, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare la scheda corrente?' }, id: 'text-danger', title: 'ELIMINA il record corrente', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
           </td>
         </tr>
         <% end %>
