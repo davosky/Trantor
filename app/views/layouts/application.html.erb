@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>Trantor</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-  crossorigin="anonymous">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300, 400, 700' rel='stylesheet'>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
+  <head>
+    <title>Trantor</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300, 400, 700' rel='stylesheet'>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-<body>
-  <% if current_user %>
-  <div class='container'>
-    <div class="row">
-      <div class="col col-lg-12">
-        <%= render 'shared/navbar' %>
+  <body>
+    <% if current_user %>
+      <div class='container'>
+        <div class="row">
+          <div class="col col-lg-12">
+            <%= render 'shared/navbar' %>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col col-lg-3'>
+            <%= render 'shared/sidebar' %>
+          </div>
+          <div class='col col-lg-9'>
+            <%= yield %>
+            <br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-lg-9">
+            <footer id='text-centered'>
+              <br>
+              <br>
+                <h6 id='text-centered'>
+                  <small>
+                    <span class="pull-right"><%= notice %></span>
+                  </small>
+                </h6>
+                <h6>
+                  <small>
+                    <span class="pull-right"><%= alert %></span>
+                  </small>
+                </h6>
+            </footer>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class='row'>
-      <div class='col col-lg-3'>
-        <%= render 'shared/sidebar' %>
+    <% else %>
+      <div class='container'>
+        <div class='row'>
+          <div class='col col-lg-4 col-lg-offset-4'>
+            <br>
+            <br>
+            <br>
+            <%= yield %>
+          </div>
+        </div>
       </div>
-      <div class='col col-lg-9'>
-        <%= yield %>
-        <br>
-        <footer id='text-centered'>
-          <br>
-          <br>
-          <p class="notice">
-            <h6>
-              <small>
-                <%= notice %>
-              </small>
-            </h6>
-          </p>
-          <p class="alert">
-            <h6>
-              <small>
-                <%= alert %>
-              </small>
-            </h6>
-          </p>
-        </footer>
-      </div>
-    </div>
-  </div>
-  <% else %>
-  <div class='container'>
-    <div class='row'>
-      <div class='col col-lg-4 col-lg-offset-4'>
-        <br>
-        <br>
-        <br>
-        <%= yield %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</body>
+    <% end %>
+  </body>
 
 </html>
