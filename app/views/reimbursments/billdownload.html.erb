@@ -18,12 +18,12 @@
         </div>
         <br>
         <div class='form-actions'>
-          <%= button_tag type: 'submit', class: 'btn btn-default btn-sm', id: 'text-success' do %>
+          <%= button_tag type: 'submit', class: 'btn btn-default btn-sm', id: 'text-success', title: 'RICERCA i record nel range impostato', 'data-toggle' => 'tooltip', 'data-placement' => 'top' do %>
           <%= fa_icon('search') %>
           <% end %>
           <% if @reimbursments.count > 0 %>
           &nbsp;
-          <%= link_to fa_icon('print'), billdownload_reimbursments_path(request.parameters.merge(format: 'pdf')), target: 'new', class: 'btn btn-default btn-sm', id: 'print' %>
+          <%= link_to fa_icon('print'), billdownload_reimbursments_path(request.parameters.merge(format: 'pdf')), target: 'new', class: 'btn btn-default btn-sm', id: 'print', title: 'STAMPA i record trovati', 'data-toggle' => 'tooltip', 'data-placement' => 'top' %>
           <% end %>
         </div>
       <% end %>
