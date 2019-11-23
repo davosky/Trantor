@@ -1,27 +1,40 @@
 <br>
 <br>
-<br>
 <div id='text-centered'>
-    <%= inline_svg('cesi_logo.svg', size: '96px * 96px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    &nbsp;
-    <%= inline_svg('davosky_logo.svg', size: '240px * 96px', preserve_aspect_ratio: 'xMaxYMax meet') %>
-</div>
-<hr>
-<div id='text-centered'>
-    <%= link_to inline_svg('sidebar_logo.svg', size: '128px * 96px', preserve_aspect_ratio: 'xMaxYMax meet'), root_path %>
+  <%= link_to inline_svg('sidebar_logo.svg', size: '256px * 192px', preserve_aspect_ratio: 'xMaxYMax meet'), root_path %>
+  <p class='text-primary'>
+    Gestionale Web creato con tecnologia
+    <a href='https://rubyonrails.org/' title='Ruby On Rails' target='new'>Ruby On Rails</a>
     <br>
-    <h5>
-        applicativo gestionale web per rimborsi spese
-    </h5>
-    <br>
-</div>
-<div class="col col-md-6 col-md-offset-3">
-    <dl class='dl-horizontal'>
-        <dt>Analisi e Programmazione:</dt>
-        <dd>Davo Davosky</dd>
-        <dt>E-Mail</dt>
-        <dd>davodavosky@gmail.com</dd>
-        <dt></dt>
-        <dd>&copy;&nbsp;The davosky Connection 2018</dd>
-    </dl>
+    Versione:
+    <strong class='text-primary'>1.1.2</strong>
+  </p>
+  <div>
+    <small>
+      Sono state usate alcune icone da:
+      <a href='https://www.flaticon.com/authors/freepik' title='Freepik' target='new'>Freepik</a>
+      &nbsp;da&nbsp;
+      <a href='https://www.flaticon.com/' title='Flaticon' target='new'>www.flaticon.com</a>
+      <br>
+      Sono stati usati alcuni font da:
+      <a href='https://fontawesome.com' title='Font Awesome' target='new'>Font Awesome</a>
+    </small>
+  </div>
+
+  <h6 class='text-info'>
+    Creato da:
+  </h6>
+  <h5 class='text-primary'>
+    Davo Davosky
+  </h5>
+  <p>
+    <small>Sysadmin & Programmatore RubyOnRails</small>
+  </p>
+  <br>
+  <p>
+    <%= mail_to 'davodavosky@gmail.com', title: 'Scrivi a Davo :-)' do %>
+    <%= inline_svg('davosky_logo_2019.svg', size: '256px * 72px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+  <% end %>
+</p>
+<h6>&copy;&nbsp;The davosky Connection 2018</h6>
 </div>
