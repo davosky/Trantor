@@ -1,7 +1,7 @@
 <div class='panel panel-default'>
   <div class='panel-body'>
     <h4>
-      <%= fa_icon('truck') %>&nbsp;&nbsp;STRUTTURE MISSIONE
+      <span class='text-info'><%= fa_icon('building') %></span>&nbsp;&nbsp;STRUTTURE MISSIONE
       <span class='pull-right'>
         <%= link_to fa_icon('pencil'), new_mission_structure_path, class: 'btn btn-default btn-sm', id: 'text-success' %>
       </span>
@@ -17,22 +17,22 @@
       </thead>
       <tbody>
         <% @mission_structures.each do |mission_structure| %>
-        <tr>
-          <td>
-            <%= link_to mission_structure.name, mission_structure, id: 'text-info' %>
-          </td>
-          <td>
-            <small>
-              <%= mission_structure.position %>
-            </small>
-          </td>
-          <td>
-            <%= link_to fa_icon('pencil'), edit_mission_structure_path(mission_structure), id: 'text-warning' %>
-          </td>
-          <td>
-            <%= link_to fa_icon('trash'), mission_structure, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare la Struttura Missione corrente?' }, id: 'text-danger' %>
-          </td>
-        </tr>
+          <tr>
+            <td>
+              <%= link_to mission_structure.name, mission_structure, id: 'text-info' %>
+            </td>
+            <td>
+              <small>
+                <%= mission_structure.position %>
+              </small>
+            </td>
+            <td>
+              <%= link_to fa_icon('pencil'), edit_mission_structure_path(mission_structure), id: 'text-warning' %>
+            </td>
+            <td>
+              <%= link_to fa_icon('trash'), mission_structure, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare la Struttura Missione corrente?' }, id: 'text-danger' %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>

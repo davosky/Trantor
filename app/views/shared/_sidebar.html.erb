@@ -10,7 +10,7 @@
         </li>
         <hr>
         <h5 id='text-primary'>
-          <%= inline_svg('icon_reimbursment.svg', size: '20px * 20px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+          <%= inline_svg('sidebar_reimbursment_icon.svg', size: '50px * 30px', preserve_aspect_ratio: 'xMaxYMax meet') %>
           &nbsp;<strong>RIMBORSI</strong>
         </h5>
         <li class='dropdown'>
@@ -52,12 +52,12 @@
           <% if current_user.user_typology == 'CESI' %>
           <%= link_to new_reimbursment_path do %>
           <%= fa_icon('pencil') %>&nbsp;
-          <%= fa_icon('credit-card') %>&nbsp;<strong>NUOVO RIMBORSO</strong>
+          <%= fa_icon('file') %>&nbsp;<strong>NUOVO RIMBORSO</strong>
           <% end %>
           <% else %>
           <%= link_to new_free_reimbursment_path do %>
           <%= fa_icon('pencil') %>&nbsp;
-          <%= fa_icon('credit-card') %>&nbsp;<strong>NUOVO RIMBORSO</strong>
+          <%= fa_icon('file') %>&nbsp;<strong>NUOVO RIMBORSO</strong>
           <% end %>
           <% end %>
         </li>
@@ -65,12 +65,12 @@
           <% if current_user.user_typology == 'CESI' %>
           <%= link_to reimbursments_path do %>
           <%= fa_icon('list') %>&nbsp;
-          <%= fa_icon('credit-card') %>&nbsp;<strong>ELENCO RIMBORSI</strong>
+          <%= fa_icon('file') %>&nbsp;<strong>ELENCO RIMBORSI</strong>
           <% end %>
           <% else %>
           <%= link_to free_reimbursments_path do %>
           <%= fa_icon('list') %>&nbsp;
-          <%= fa_icon('credit-card') %>&nbsp;<strong>ELENCO RIMBORSI</strong>
+          <%= fa_icon('file') %>&nbsp;<strong>ELENCO RIMBORSI</strong>
           <% end %>
           <% end %>
         </li>
@@ -78,12 +78,12 @@
           <% if current_user.user_typology == 'CESI' %>
           <%= link_to billdownload_reimbursments_path do %>
           <%= fa_icon('print') %>&nbsp;
-          <%= fa_icon('credit-card') %>&nbsp;<strong>STAMPA RIMBORSI</strong>
+          <%= fa_icon('file') %>&nbsp;<strong>STAMPA RIMBORSI</strong>
           <% end %>
           <% else %>
           <%= link_to billdownload_free_reimbursments_path do %>
           <%= fa_icon('print') %>&nbsp;
-          <%= fa_icon('credit-card') %>&nbsp;<strong>STAMPA RIMBORSI</strong>
+          <%= fa_icon('file') %>&nbsp;<strong>STAMPA RIMBORSI</strong>
           <% end %>
           <% end %>
         </li>
@@ -91,12 +91,12 @@
           <% if current_user.user_typology == 'CESI' %>
           <%= link_to billdownloadlist_reimbursments_path do %>
           <%= fa_icon('print') %>&nbsp;
-          <%= fa_icon('credit-card') %>&nbsp;<%= fa_icon('list') %>&nbsp;<strong>STAMPA RIEPILOGO</strong>
+          <%= fa_icon('file') %>&nbsp;<%= fa_icon('list') %>&nbsp;<strong>STAMPA RIEPILOGO</strong>
           <% end %>
           <% else %>
           <%= link_to billdownloadlist_free_reimbursments_path do %>
           <%= fa_icon('print') %>&nbsp;
-          <%= fa_icon('credit-card') %>&nbsp;<%= fa_icon('list') %>&nbsp;<strong>STAMPA RIEPILOGO</strong>
+          <%= fa_icon('file') %>&nbsp;<%= fa_icon('list') %>&nbsp;<strong>STAMPA RIEPILOGO</strong>
           <% end %>
           <% end %>
         </li>
@@ -106,7 +106,7 @@
           <br>
         </li>
         <h5 id='text-primary'>
-          <%= inline_svg('icon_fuel.svg', size: '20px * 20px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+          <%= inline_svg('sidebar_fuel_icon.svg', size: '50px * 30px', preserve_aspect_ratio: 'xMaxYMax meet') %>
           &nbsp;<strong>CARBURANTE</strong>
         </h5>
         <li class='dropdown'>

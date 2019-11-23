@@ -1,13 +1,13 @@
 <div class='panel panel-default'>
   <div class='panel-body'>
     <h4>
-      <i class="fas fa-gas-pump"></i>&nbsp;&nbsp;GESTORE
+      <span class='text-info'><i class="fas fa-gas-pump"></i></span>&nbsp;&nbsp;GESTORE
       <span class='pull-right'>
         <%= link_to fa_icon('arrow-left'), service_stations_path, class: 'btn btn-default btn-sm' %>
         &nbsp;
         <% if @service_station.name == '-' %>
         <% else %>
-        <%= link_to fa_icon('pencil'), edit_service_station_path(@service_station), class: 'btn btn-default btn-sm', id: 'text-warning' %>
+          <%= link_to fa_icon('pencil'), edit_service_station_path(@service_station), class: 'btn btn-default btn-sm', id: 'text-warning' %>
         <% end %>
       </span>
     </h4>

@@ -1,7 +1,7 @@
 <div class='panel panel-default'>
   <div class='panel-body'>
     <h4>
-      <%= fa_icon('map-marker') %>&nbsp;&nbsp;LUOGHI MISSIONE
+      <span class='text-info'><%= fa_icon('map-marker') %></span>&nbsp;&nbsp;LUOGHI MISSIONE
       <span class='pull-right'>
         <%= link_to fa_icon('pencil'), new_mission_place_path, class: 'btn btn-default btn-sm', id: 'text-success' %>
       </span>
@@ -17,22 +17,22 @@
       </thead>
       <tbody>
         <% @mission_places.each do |mission_place| %>
-        <tr>
-          <td>
-            <%= link_to mission_place.name, mission_place, id: 'text-info' %>
-          </td>
-          <td>
-            <small>
-              <%= mission_place.position %>
-            </small>
-          </td>
-          <td>
-            <%= link_to fa_icon('pencil'), edit_mission_place_path(mission_place), id: 'text-warning' %>
-          </td>
-          <td>
-            <%= link_to fa_icon('trash'), mission_place, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il Luogo Missione corrente?' }, id: 'text-danger' %>
-          </td>
-        </tr>
+          <tr>
+            <td>
+              <%= link_to mission_place.name, mission_place, id: 'text-info' %>
+            </td>
+            <td>
+              <small>
+                <%= mission_place.position %>
+              </small>
+            </td>
+            <td>
+              <%= link_to fa_icon('pencil'), edit_mission_place_path(mission_place), id: 'text-warning' %>
+            </td>
+            <td>
+              <%= link_to fa_icon('trash'), mission_place, method: :delete, data: { confirm: 'Sei sicuro/a di voler eliminare il Luogo Missione corrente?' }, id: 'text-danger' %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>

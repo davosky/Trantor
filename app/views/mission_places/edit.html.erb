@@ -1,14 +1,14 @@
 <div class='panel panel-default'>
-    <div class='panel-body'>
-        <h4>
-            <%= fa_icon('map-marker') %>&nbsp;&nbsp;MODIFICA LUOGO MISSIONE
-            <span class='pull-right'>
-                <%= link_to fa_icon('arrow-left'), mission_places_path, class: 'btn btn-default btn-sm' %>
-                &nbsp;
-                <%= link_to fa_icon('eye'), @mission_place, class: 'btn btn-default btn-sm', id: 'text-info' %>
-            </span>
-        </h4>
-        <hr>
-        <%= render 'form', mission_place: @mission_place %>
-    </div>
+  <div class='panel-body'>
+    <h4>
+      <span class='text-info'><%= fa_icon('map-marker') %></span>&nbsp;&nbsp;MODIFICA LUOGO MISSIONE
+      <span class='pull-right'>
+        <%= link_to fa_icon('arrow-left'), mission_places_path, class: 'btn btn-default btn-sm' %>
+        &nbsp;
+        <%= link_to fa_icon('eye'), @mission_place, class: 'btn btn-default btn-sm', id: 'text-info' %>
+      </span>
+    </h4>
+    <hr>
+    <%= render 'form', mission_place: @mission_place %>
+  </div>
 </div>

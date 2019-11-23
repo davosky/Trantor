@@ -1,7 +1,9 @@
 <div class='panel panel-default'>
     <div class='panel-body'>
         <h4>
-            <%= fa_icon('credit-card') %>&nbsp;&nbsp;NUOVO RIMBORSO
+            <%= inline_svg('reimbursment_new_icon.svg', size: '50px * 30px', preserve_aspect_ratio: 'xMaxYMax meet') %>
+            &nbsp;&nbsp;
+            NUOVO RIMBORSO
             <span class='pull-right'>
                 <%= link_to fa_icon('arrow-left'), reimbursments_path, class: 'btn btn-default btn-sm' %>
             </span>

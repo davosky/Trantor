@@ -36,6 +36,7 @@ gem 'wkhtmltopdf_binary', '~> 0.12.3.2'
 
 group :development do
   gem 'solargraph-rails', '~> 0.1.0'
+  gem 'htmlbeautifier', '~> 1.3', '>= 1.3.1'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
