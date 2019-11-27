@@ -147,12 +147,14 @@
               <tr></tr>
               <tr></tr>
               <tr>
-                <td>------------------------------------------</td>
                 <td>
-                  <strong>
-                    <%= free_reimbursment.reimbursment_date.strftime('%d/%m/%Y') %>
-                  </strong>
+                  <%  if current_user.signature.url.present? %>
+                    <%= wicked_pdf_image_tag(free_reimbursment.user.signature.url, :size => '140x54', :crop => :fill) %>
+                  <% end %>
+                  <br>
+                  ------------------------------------------
                 </td>
+                <td><%= free_reimbursment.reimbursment_date.strftime('%d/%m/%Y') %></td>
               </tr>
             </tbody>
           </table>
