@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: trantor
+  password: Dfr368qE
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: trantor_development
+
+test:
+  <<: *default
+  database: trantor_test
+
+production:
+  <<: *default
+  database: trantor_production
+  username: trantor
+  password: <%= ENV["TRANTOR_DATABASE_PASSWORD"] %>
