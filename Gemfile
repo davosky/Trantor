@@ -29,3 +29,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise", "~> 4.9"
+
+gem "rails_admin", "~> 3.2"
+gem "sassc-rails"

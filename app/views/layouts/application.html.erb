@@ -15,6 +15,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
   <body>
-    <%= yield %>
+    <div class="container">
+      <% unless user_signed_in? %>
+        <%= render "shared/log_in" %>
+      <% else %>
+        <%= render "shared/content" %>
+      <% end %>
+      <%= turbo_frame_tag "remote_modal" %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,434 @@
+* {
+  font-family: "RobotoCondensed-Regular";
+}
+/* DOM */
+body {
+  background-color: #f2f2f2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23cfcfcf' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
+  font-weight: 400;
+  font-size: 12pt;
+}
+
+// Mixins
+
+@mixin shadow($width: 4px) {
+  border-style: solid;
+  border-width: 0 1px $width 1px;
+}
+
+.p-justify {
+  text-align: justify;
+}
+
+.shadow {
+  -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+}
+
+// Navbar
+
+.navbar {
+  border-bottom: solid 2px darken($primary, 14);
+  -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+
+  @each $color, $value in $theme-colors {
+    &.bg-#{$color} {
+      border-color: shade-color($value, 10%);
+    }
+  }
+}
+
+// Buttons
+
+.btn-primary {
+  border: none;
+  color: $white;
+  background-color: $primary;
+
+  &:hover {
+    color: $white;
+    background-color: darken($primary, 10);
+    -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+    box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.btn-secondary {
+  border: none;
+  color: $white;
+  background-color: $secondary;
+
+  &:hover {
+    color: $white;
+    background-color: darken($secondary, 10);
+    -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+    box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.btn-success {
+  border: none;
+  color: $white;
+  background-color: $success;
+
+  &:hover {
+    color: $white;
+    background-color: darken($success, 10);
+    -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+    box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.btn-info {
+  border: none;
+  color: $white;
+  background-color: $info;
+
+  &:hover {
+    color: $white;
+    background-color: darken($info, 10);
+    -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+    box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.btn-warning {
+  border: none;
+  color: $white;
+  background-color: $warning;
+
+  &:hover {
+    color: $white;
+    background-color: darken($warning, 10);
+    -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+    box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.btn-danger {
+  border: none;
+  color: $white;
+  background-color: $danger;
+
+  &:hover {
+    color: $white;
+    background-color: darken($danger, 10);
+    -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+    box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.btn-light {
+  border: none;
+  color: $dark;
+  background-color: $light;
+
+  &:hover {
+    color: $dark;
+    background-color: darken($light, 10);
+    -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+    box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.btn-dark {
+  border: none;
+  color: $white;
+  background-color: $dark;
+
+  &:hover {
+    color: $white;
+    background-color: darken($dark, 10);
+    -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+    box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.btn-outline-secondary {
+  color: var(--bs-tertiary-color);
+}
+
+[class*="btn-outline"] {
+  border-top-width: 1px;
+}
+
+.btn-group-vertical {
+  .btn + .btn {
+    &:hover {
+      margin-top: -1px;
+      border-top-width: 1px;
+    }
+
+    &:active {
+      margin-top: -1px;
+      border-top-width: 2px;
+    }
+  }
+}
+
+// Typography
+
+.text-secondary {
+  color: $gray-700 !important;
+}
+
+.blockquote-footer {
+  color: $gray-600;
+}
+
+// Forms
+
+.form-control {
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.075);
+}
+
+// Navs
+
+.nav {
+  .open > a,
+  .open > a:hover,
+  .open > a:focus {
+    border-color: transparent;
+  }
+}
+
+.nav-item {
+  color: $white;
+
+  .nav-link {
+    color: $white;
+
+    &:hover {
+      background-color: darken($primary, 5);
+      border-radius: 5px;
+    }
+  }
+}
+
+.nav-tabs {
+  .nav-link {
+    color: $white;
+
+    &,
+    &.disabled,
+    &.disabled:hover,
+    &.disabled:focus {
+      margin-top: 6px;
+      border-color: $nav-tabs-border-color;
+      transition: padding-bottom 0.2s ease-in-out, margin-top 0.2s ease-in-out,
+        border-bottom 0.2s ease-in-out;
+    }
+
+    &:not(.disabled):hover,
+    &:not(.disabled):focus,
+    &.active {
+      padding-bottom: add(0.5rem, 6px);
+      margin-top: 0;
+      color: $white;
+      border-bottom-color: transparent;
+    }
+  }
+
+  &.nav-justified > li {
+    vertical-align: bottom;
+  }
+}
+
+.dropdown-menu {
+  background-color: $primary;
+  border: solid 1px $white;
+  margin-top: 0;
+  -webkit-box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+  box-shadow: 6px 6px 12px -3px rgba(0, 0, 0, 0.65);
+}
+
+.dropdown-item {
+  color: $white;
+
+  &:hover {
+    background-color: darken($primary, 14);
+  }
+}
+
+.breadcrumb {
+  border-color: $pagination-border-color;
+  @include shadow();
+}
+
+.pagination {
+  > li > a,
+  > li > span {
+    position: relative;
+    top: 0;
+    font-weight: 700;
+    color: $pagination-color;
+    text-transform: uppercase;
+    @include shadow();
+
+    &:hover,
+    &:focus {
+      top: 1px;
+      text-decoration: none;
+      border-bottom-width: 3px;
+    }
+
+    &:active {
+      top: 2px;
+      border-bottom-width: 2px;
+    }
+  }
+
+  > .disabled > a,
+  > .disabled > span {
+    &:hover {
+      top: 0;
+      @include shadow();
+    }
+
+    &:active {
+      top: 0;
+      @include shadow();
+    }
+  }
+}
+
+.pager {
+  > li > a,
+  > li > span,
+  > .disabled > a,
+  > .disabled > span {
+    &,
+    &:hover,
+    &:active {
+      border-right-width: 2px;
+      border-left-width: 2px;
+    }
+  }
+}
+
+// Indicators
+
+.btn-close {
+  text-decoration: none;
+  opacity: 0.4;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.alert {
+  color: $white;
+  @include shadow();
+
+  &-primary {
+    background-color: $primary;
+    border-color: shade-color($primary, 10%);
+  }
+
+  &-secondary {
+    background-color: $secondary;
+    border-color: shade-color($secondary, 10%);
+  }
+
+  &-success {
+    background-color: $success;
+    border-color: shade-color($success, 10%);
+  }
+
+  &-info {
+    background-color: $info;
+    border-color: shade-color($info, 10%);
+  }
+
+  &-danger {
+    background-color: $danger;
+    border-color: shade-color($danger, 10%);
+  }
+
+  &-warning {
+    background-color: $warning;
+    border-color: shade-color($warning, 10%);
+  }
+
+  &-dark {
+    background-color: $dark;
+    border-color: shade-color($dark, 10%);
+  }
+
+  &-light {
+    background-color: $light;
+    border-color: shade-color($light, 10%);
+  }
+
+  .alert-link {
+    font-weight: 400;
+    color: $white;
+    text-decoration: underline;
+  }
+
+  &-secondary,
+  &-light {
+    &,
+    a,
+    .alert-link {
+      color: $body-color;
+    }
+  }
+}
+
+.badge {
+  &.bg-secondary,
+  &.bg-light {
+    color: $dark;
+  }
+}
+
+// Containers
+
+a.list-group-item {
+  &-success {
+    &.active {
+      background-color: $success;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: shade-color($success, 10%);
+    }
+  }
+
+  &-warning {
+    &.active {
+      background-color: $warning;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: shade-color($warning, 10%);
+    }
+  }
+
+  &-danger {
+    &.active {
+      background-color: $danger;
+    }
+
+    &.active:hover,
+    &.active:focus {
+      background-color: shade-color($danger, 10%);
+    }
+  }
+}
+
+.modal,
+.toast,
+.offcanvas {
+  .btn-close {
+    background-image: escape-svg(
+      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$black}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>")
+    );
+  }
+}

@@ -1,0 +1,110 @@
+<nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
+  <div class="container">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag("navbar/navbar-logo.svg", class: "img-fluid") %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown nav-link-main-navbar" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-gear"></i>
+            &nbsp;
+            Moduli
+          </a>
+          <div class="dropdown-menu">
+            <%= link_to "#", class: "dropdown-item" do %>
+              <i class="fa-solid fa-file-pen"></i>
+              &nbsp;
+              Motivi Missione
+            <% end %>
+            <%= link_to "#", class: "dropdown-item" do %>
+              <i class="fa-solid fa-route"></i>
+              &nbsp;
+              Percorsi
+            <% end %>
+            <%= link_to "#", class: "dropdown-item" do %>
+              <i class="fa-solid fa-city"></i>
+              &nbsp;
+              Luoghi
+            <% end %>
+            <%= link_to "#", class: "dropdown-item" do %>
+              <i class="fa-solid fa-building"></i>
+              &nbsp;
+              Strutture
+            <% end %>
+            <%= link_to "#", class: "dropdown-item" do %>
+              <i class="fa-solid fa-train"></i>
+              &nbsp;
+              Trasporti
+            <% end %>
+            <%= link_to "#", class: "dropdown-item" do %>
+              <i class="fa-solid fa-car"></i>
+              &nbsp;
+              Veicoli
+            <% end %>
+          </div>
+        </li>
+        <li>&emsp;&emsp;</li>
+        <li class="nav-item">
+          <%= link_to edit_user_registration_path, class: "nav-link" do %>
+            <%= full_user %>
+            &emsp;
+          <% end %>
+        </li>
+        <li class="nav-item dropstart">
+          <a class="nav-link dropdown nav-link-main-navbar" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+          </a>
+          <div class="dropdown-menu">
+            <% if admin? %>
+              <%= link_to rails_admin_path, class: "dropdown-item" do %>
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                &nbsp;
+                Amministrazione
+              <% end %>
+            <% end %>
+            <%= link_to home_credits_path, method: :get, class: "dropdown-item" do %>
+              <i class="fa-solid fa-user-gear"></i>
+              &nbsp;
+              Crediti
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :get, class: "dropdown-item text-danger" do %>
+              <i class="fa-solid fa-door-open"></i>
+              &nbsp;
+              Esci
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
