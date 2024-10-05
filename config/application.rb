@@ -11,6 +11,10 @@ module Trantor
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
 
+    # Locales
+    config.i18n.default_locale = :it
+    config.time_zone = "Europe/Rome"
+
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.

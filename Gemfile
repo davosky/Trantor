@@ -9,6 +9,7 @@ gem "jsbundling-rails"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "rails", "~> 7.2.1"
+gem 'rails-i18n', '~> 7.0.0'
 gem "sprockets-rails"
 gem "stimulus-rails"
 gem "turbo-rails"
@@ -34,3 +35,5 @@ gem "devise", "~> 4.9"
 
 gem "rails_admin", "~> 3.2"
 gem "sassc-rails"
+
+gem "rails_admin-i18n", "~> 1.20"
