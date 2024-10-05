@@ -37,6 +37,7 @@ it:
         name: Nome Utente
         password: Password
         password_confirmation: Conferma Password
+        current_password: Password Corrente
         remember_created_at: Creato il
         email: E-Mail
         first_name: Nome

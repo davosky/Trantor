@@ -1,32 +1,61 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+<div class="row mt-5 pt-3">
+  <div class="col-6 offset-3">
+    <p>
+      <%= image_tag("user/user.svg", class: "img-fluid", alt: "user.svg") %>
+      &emsp;
+      <span class=" fs-3 fw-bold text-primary">
+        Profilo
+      </span>
+    </p>
+    <hr class="text-primary"/>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="mb-3">
+        <%= f.label :password %>
+        <span class="fst-italic text-primary">
+          &nbsp;
+          lascia vuoto se non vuoi cambiarla
+        </span>
+        <br/>
+        <%= f.password_field :password, autofocus: true, class: "form-control" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :password_confirmation %>
+        <br/>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :current_password %>
+        <span class="fst-italic text-primary">
+          &nbsp;
+          abbiamo bisogno della tua password attuale per confermare le modifiche
+        </span>
+        <br/>
+        <%= f.password_field :current_password, class: "form-control" %>
+      </div>
+      <hr class="text-primary"/>
+      <div class="d-grid mb-3">
+        <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+          <strong>
+            <i class="fas fa-sign-in-alt"></i>
+            &ensp;
+            Salva Modifiche
+          </strong>
+        <% end %>
+      </div>
+      <div class="d-grid">
+        <%= link_to :back, class: "btn btn-warning" do %>
+          <strong>
+            <i class="fa-solid fa-rotate-left"></i>
+            &emsp;
+            Annulla
+          </strong>
+        <% end %>
+      </div>
     <% end %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-<%= link_to "Back", :back %>
+</div>

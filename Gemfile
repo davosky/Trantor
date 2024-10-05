@@ -37,3 +37,5 @@ gem "rails_admin", "~> 3.2"
 gem "sassc-rails"
 
 gem "rails_admin-i18n", "~> 1.20"
+
+gem "devise-i18n", "~> 1.12"
