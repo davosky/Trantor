@@ -1,14 +1,26 @@
-<h2>Log in</h2>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+<div class="row mt-5 pt-5 mb-1">
+  <div class="col-8 offset-2 mt-5 pt-5">
+    <%= image_tag("content/main-logo.svg", class: "img-fluid") %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+</div>
+<div class="row">
+  <div class="col-8 offset-2">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="input-group mb-3">
+        <span class="input-group-text bg-primary text-white"><i class="fa-solid fa-user-astronaut"></i></span>
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text bg-primary text-white"><i class="fa-solid fa-key"></i></span>
+        <%= f.password_field :password, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="d-grid mb-5">
+        <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+          <strong>
+            <i class="fas fa-sign-in-alt"></i>&ensp;ACCEDI
+          </strong>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+</div>
