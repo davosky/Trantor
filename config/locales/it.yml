@@ -9,20 +9,7 @@ it:
         previous: Precedente
     models:
       user: Utente
-      road: Percorso
-      transport: Trasporto
-      place: Luogo
-      structure: Struttura
       reason: Motivo
-      veichle: Veicolo
-      refund: Rimborso
-      refund_closure: Chiusura Rimborsi
-      holiday: Ferie
-      hourly_holiday: Ferie Orarie
-      disease: Malattia
-      permit: Permesso
-      permit_type: Tipo Permesso
-      hourly_permit: Ore Permesso
     simple_calendar:
       previous: "<<"
       next: ">>"
@@ -60,6 +47,11 @@ it:
         sex: Sesso
         created_at: Creato Il
         updated_at: Aggiornato il
+        reasons: Motivi
+      reason:
+        name: Motivo
+        position: Posizione
+        user: Utente
     errors:
       messages:
         record_invalid: "Validazione fallita: %{errors}"

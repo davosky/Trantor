@@ -1,0 +1,18 @@
+<div id="<%= dom_id reason %>">
+  <td>
+    <%= reason.name %>
+  </td>
+  <td>
+    <%= reason.position %>
+  </td>
+  <td>
+    <%= link_to edit_reason_path(reason), "data-bs-toggle": "tooltip", "title": "Modifica il Record Corrente", class: "btn btn-transparent-warning" do %>
+      <i class="fa-solid fa-pen-to-square"></i>
+    <% end %>
+  </td>
+  <td>
+    <%= button_to reason, method: :delete, data: { turbo_confirm: 'Sicuri di voler eliminare questo motivo missione?' } , "data-bs-toggle": "tooltip", "title": "Elimina il Record Corrente", class: "btn btn-transparent-danger"  do %>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
+  </td>
+</div>

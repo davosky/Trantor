@@ -13,6 +13,12 @@ RailsAdmin.config do |config|
     label_plural "Utenti"
   end
 
+  config.model "Reason" do
+    visible true
+    label "Motivo"
+    label_plural "Motivi"
+  end
+
   config.actions do
     dashboard
     index

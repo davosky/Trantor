@@ -10,15 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_29_144109) do
+ActiveRecord::Schema[7.2].define(version: 2) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "reasons", force: :cascade do |t|
+    t.string "name"
+    t.integer "position"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_reasons_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.datetime "remember_created_at"
+    t.string "email"
     t.boolean "admin"
     t.boolean "accounter"
     t.boolean "manager"
@@ -33,9 +40,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_29_144109) do
     t.string "category"
     t.string "validator"
     t.string "validator_presentation"
-    t.string "confirmator"
-    t.string "confirmator_presentation"
     t.string "organizational"
     t.string "organizational_presentation"
+    t.string "confirmator"
+    t.string "confirmator_presentation"
+    t.index ["name"], name: "index_users_on_name", unique: true
   end
 end

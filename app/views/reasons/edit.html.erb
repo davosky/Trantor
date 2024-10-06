@@ -1,0 +1,17 @@
+<div class="card bg-light border-light shadow mt-3">
+  <div class="card-header bg-light">
+    <span class="float-start">
+      <%= image_tag("reason/reason-logo-edit.svg", class: "img-fluid", alt: "reason-logo.svg") %>
+    </span>
+    <span class="float-end">
+      <%= link_to reasons_path, class: "btn btn-outline-warning" do %>
+        <i class="fa-solid fa-rotate-left"></i>
+        &nbsp;
+        Annulla
+      <% end %>
+    </span>
+  </div>
+  <div class="card-body">
+    <%= render "form", reason: @reason %>
+  </div>
+</div>

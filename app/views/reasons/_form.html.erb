@@ -1,0 +1,39 @@
+<%= form_with(model: reason) do |form| %>
+  <% if reason.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(reason.errors.count, "error") %> prohibited this reason from being saved:</h2>
+      <ul>
+        <% reason.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="input-group mb-3 shadow">
+        <span class="input-group-text input-group-text-fixed bg-primary text-white">
+          <i class="fa-solid fa-file-pen"></i>
+          &nbsp;
+          <%= form.label :name %>
+        </span>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+      <div class="input-group mb-3 shadow">
+        <span class="input-group-text input-group-text-fixed bg-primary text-white">
+          <i class="fa-solid fa-file-pen"></i>
+          &nbsp;
+          <%= form.label :position %>
+        </span>
+        <%= form.number_field :position, class: "form-control" %>
+      </div>
+      <div class="d-grid mb-5">
+        <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+          <strong>
+            <i class="fa-solid fa-floppy-disk"></i>&ensp;SALVA
+          </strong>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
